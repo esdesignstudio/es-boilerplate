@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@nuxtjs/i18n": "^8.0.0-beta.10",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "nuxt": "^3.6.0",
+    "nuxt-icons": "^3.1.0",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0",
+    "stylelint": "^14.8.3"
+  },
+  "dependencies": {
+    "@formkit/nuxt": "^1.0.0-beta.15",
+    "dayjs": "^1.11.5",
+    "gsap": "^3.12.2",
+    "locomotive-scroll": "^5.0.0-beta.8",
+    "swiper": "^8.1.5",
+    "vue-gtag-next": "^1.14.0"
+  }
+}
