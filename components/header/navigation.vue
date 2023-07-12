@@ -27,11 +27,8 @@
             name: 'Home',
             link: '/',
         }, {
-            name: 'About',
-            link: '/about',
-        }, {
-            name: 'Blog',
-            link: '/blog',
+            name: 'Animation',
+            link: '/Animation',
         }, {
             name: 'Form',
             link: '/form',
@@ -42,14 +39,11 @@
 $class-name: navigation-main;
 .#{$class-name} {
     ul {
+        gap: 2rem;
         display: flex;
 
         li {
             a {
-                @include typo('head', 2);
-
-                padding-left: 1rem;
-
                 &:hover {
                     opacity: .5;
                 }

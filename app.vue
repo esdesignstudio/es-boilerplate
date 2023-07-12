@@ -56,7 +56,7 @@ $class-name: loading;
     }
 
 }
-body.isLoaded {
+body.is-loaded {
     .#{$class-name} {
         pointer-events: none;
 

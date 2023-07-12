@@ -28,20 +28,21 @@ $font-family: (
 @mixin typo($lv, $type) {
     @if $lv == 'display' {
         @if $type == 1 {
-            font-size: 4rem;
+            font-size: 7vw;
             font-family: map-get($font-family, en);
             font-weight: map-get($font-weight, bold);
-            line-height: 1.4;
+            line-height: 1.1;
 
         } @else if $type == 2 {
-            font-size: 3rem;
+            font-size: 4rem;
+            line-height: 1.2;
             font-family: map-get($font-family, en);
             font-weight: map-get($font-weight, bold);
             @include media-breakpoint-down(tablet) {
                 font-size: 36px;
             }
         } @else if $type == 3 {
-            font-size: 14px;
+            font-size: 1.6rem;
             font-family: map-get($font-family, default);
             font-weight: map-get($font-weight, bold);
             line-height: normal;
@@ -54,9 +55,9 @@ $font-family: (
         }
     } @else if $lv == 'head' {
         @if $type == 1 {
-            font-size: 2rem;
+            font-size: 3.6rem;
             line-height: 1.6;
-            font-weight: map-get($font-weight, medium);
+            font-weight: map-get($font-weight, bold);
             font-family: map-get($font-family, default);
 
             body.language-en &, &.-en {
@@ -67,7 +68,7 @@ $font-family: (
                 font-size: 28px;
             }
         } @else if $type == 2 {
-            font-size: 1.6rem;
+            font-size: 2.4rem;
             line-height: 1.6;
             font-family: map-get($font-family, default);
             font-weight: map-get($font-weight, medium);
@@ -77,7 +78,7 @@ $font-family: (
             }
 
         } @else if $type == 3 {
-            font-size: 1.2rem;
+            font-size: 2rem;
             line-height: 1.6;
             font-family: map-get($font-family, default);
             font-weight: map-get($font-weight, medium);
@@ -90,10 +91,10 @@ $font-family: (
         }
     } @else if $lv == 'body' {
         @if $type == 1 {
-            font-size: 14px;
+            font-size: 1.6rem;
+            line-height: 1.6;
             font-family: map-get($font-family, default);
             font-weight: map-get($font-weight, medium);
-            line-height: 24px;
 
             body.language-en &, &.-en {
                 font-family: map-get($font-family, en);

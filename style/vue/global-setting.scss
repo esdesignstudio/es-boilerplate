@@ -28,19 +28,29 @@ textarea {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+html {
+    font-size: 62.5%;
 
-html,
+    @include media-breakpoint-up(large) {
+        font-size: 0.65vw;
+    }
+}
+
 body {
-    @include typo('body', 1);
-
-    min-width: 320px;
-    min-height: 100vh;
-    overscroll-behavior: none;
+    -ms-overflow-style: none;
     background-color: map-get($colors, gray);
 
-    @include media-breakpoint-down(tablet) {
-        height: 100%;
-        min-height: auto;
+    &.is-loading {
+        cursor: progress;
+        overflow: hidden;
+
+        #__nuxt {
+            pointer-events: none;
+        }
+    }
+    
+    &::-webkit-scrollbar {
+        display: none;
     }
 }
 

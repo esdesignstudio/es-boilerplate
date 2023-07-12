@@ -1,4 +1,6 @@
-// import member from './member.js'
+import MEMBER from './member.js'
+
 export default {
-    switcher: 'English'
+    welcome: 'English',
+    MEMBER
 }

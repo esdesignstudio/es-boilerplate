@@ -1,7 +1,7 @@
 # ES Boilerplate  🍳
 
 ES 開發的 Nuxt3 版本，專門使用在客製化專案客戶。
-如有在使用上遇到困難或者有改進建議的地方歡迎到 [Issues](https://github.com/esdesignstudio/es-nuxt3-template/issues) 提交問題，或者來信 [hi@e-s.tw](mailto:hi@e-s.tw)。
+如有在使用上遇到困難或者有改進建議的地方歡迎到 [Issues](https://github.com/esdesignstudio/es-boilerplate/issues) 提交問題，或者來信 [hi@e-s.tw](mailto:hi@e-s.tw)。
 
 ## Environment
 
