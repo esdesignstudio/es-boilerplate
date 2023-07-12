@@ -39,6 +39,13 @@ export const ESinit = (data:{ scroll: Function }) => {
             document.body.classList.remove('is-loaded')
             document.body.classList.add('is-loading')
         }
+
+        // lenis 滾動中換頁會回不到最上層，增加確保
+        if (document.documentElement.classList.contains('lenis-scrolling')) {
+            setTimeout(() => {
+                $LCscroll.scrollTo(0, { duration: 1 })
+            }, 400)
+        }
         
     })
 
@@ -48,8 +55,9 @@ export const ESinit = (data:{ scroll: Function }) => {
 
     hook('page:finish', () => {
 
+
         if (!isFirstLand) {
-            
+
             setTimeout(() => {
                 const newContainer = document.querySelector('main')
                 if (newContainer !== null) {

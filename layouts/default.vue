@@ -16,6 +16,14 @@
 
 <style lang="scss">
     main {
+        opacity: 0;
         padding-top: 22rem;
+        transition: opacity .4s
+    }
+    
+    body.is-loaded {
+        main {
+            opacity: 1;
+        }
     }
 </style>

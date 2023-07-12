@@ -43,6 +43,7 @@ $class-name: header-index;
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 100;
     padding: 6rem 0;
     border-bottom: 1px solid rgba(0,0,0,.2);
     transition: padding .3s;

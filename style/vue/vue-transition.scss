@@ -2,11 +2,10 @@
     &-enter {
         &-from {
             opacity: 0;
-            transform: translateY(5rem);
         }
 
         &-active {
-            transition: all .4s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: opacity .4s;
         }
     }
 
@@ -25,11 +24,10 @@
     &-enter {
         &-from {
             opacity: 0;
-            transform: translateY(2rem);
         }
 
         &-active {
-            transition: opacity 0.5s, transform .5s;
+            transition: opacity 0.5s;
         }
     }
 

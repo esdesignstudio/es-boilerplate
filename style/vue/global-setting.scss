@@ -42,9 +42,8 @@ body {
 
     &.is-loading {
         cursor: progress;
-        overflow: hidden;
 
-        #__nuxt {
+        #es-app {
             pointer-events: none;
         }
     }
