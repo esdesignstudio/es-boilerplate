@@ -20,6 +20,7 @@
     })
 </script>
 <style lang="scss">
+
 $class-name: loading;
 .#{$class-name} {
     @include size(100%);

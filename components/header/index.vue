@@ -1,26 +1,23 @@
 <template>
-    <div 
-        class="header-index"
+    <header 
+        class="header-index container"
         :class="{
             '-scrolled': scrolled,
         }"
     >
-        <div class="container">
-            <div class="header-index__wrap">
-                <NuxtLink 
-                    to="/"
-                    class="header-index__logo"
-                >
-                    <nuxt-icon name="logo" />
-                    ES Boilerplate
-                </NuxtLink>
-                <div class="header-index__navigation">
-                    <HeaderNavigation />
-                    {{ $t('welcome') }}
-                </div>
+        <div class="header-index__wrap grid -col-4 -col-12@from-medium -gutters">
+            <NuxtLink 
+                to="/"
+                class="header-index__logo grid_item col1-4"
+            >
+                <nuxt-icon name="logo" />
+                ES Boilerplate
+            </NuxtLink>
+            <div class="header-index__navigation grid_item col5-13">
+                <HeaderNavigation />
             </div>
         </div>
-    </div>
+    </header>
 </template>
 <script setup>
     const scrolled = useScrolled()
@@ -44,18 +41,21 @@ $class-name: header-index;
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: 6rem 0;
+    height: 16rem;
+    align-items: center;
+    transition: height .3s;
     border-bottom: 1px solid rgba(0,0,0,.2);
-    transition: padding .3s;
+    background-color: map-get($colors, gray);
 
     &.-scrolled {
-        padding: 2rem 0;
+        height: 10rem;
     }
 
     &__wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        height: 100%;
+        flex: 1;
+        // display: flex;
+        // justify-content: space-between;
 
         span {
             margin-right: 1rem;

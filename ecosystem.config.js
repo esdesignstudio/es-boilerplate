@@ -6,7 +6,7 @@ module.exports = {
 		max_memory_restart: '1G', // 緩存了多少記憶體重新整理
 		env_prod: {
 			name: 'es_template', // 專案啟動記得改名字
-			PORT: 4001 // 專案啟動記得避開其他專案的 port
+			PORT: 3111 // 專案啟動記得避開其他專案的 port
 		},
 	}]
 }

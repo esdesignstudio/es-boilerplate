@@ -16,6 +16,7 @@ ES 開發的 Nuxt3 版本，專門使用在客製化專案客戶。
 - [Swiper](https://swiperjs.com/swiper-api)
 - [GSAP](https://greensock.com/gsap/)
 - [Locomotive Scroll V5](https://scroll.locomotive.ca/docs/#/limitations)
+- [Locomotive Grid System](https://github.com/locomotivemtl/locomotive-boilerplate/blob/master/docs/grid.md)
 
 ## License
 

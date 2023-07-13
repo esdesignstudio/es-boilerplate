@@ -1,0 +1,113 @@
+
+
+// Typography
+// =============================================================================
+
+// 初始字體風格設定用 https://systemfontstack.com/
+// 黑體
+$font-fallback-sans:    -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+// 襯線體
+$font-fallback-serif:   Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+// 程式體
+$font-fallback-mono:    Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+
+// 特殊字體安裝
+// @font-face {
+//     font-family: 'es';
+//     src: url('~/font/es.woff2') format('woff2'),
+//          url('~/font/es.woff') format('woff'),
+//          url('~/font/es.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+// Basic
+// =============================================================================
+
+$font-weight-bold:   700;
+$font-weight-medium: 500;
+$font-weight-normal: 400;
+$font-weight-light:  300;
+
+$font-family-display: 
+    'Helvetica Neue',
+    'Helvetica',
+    $font-fallback-sans;
+
+$font-family-head:
+    'Helvetica Neue',
+    'Helvetica',
+    $font-fallback-sans;
+
+$font-family-body:
+    'Helvetica Neue',
+    'Helvetica',
+    $font-fallback-sans;
+
+
+// Mixins 請參照 Figma 設定
+// 命名後方是跟著字體大小，display 通常用 vs
+// =============================================================================
+@mixin typo($lv, $type) {
+
+    @if $lv == 'display' {
+        @if $type == 1 {
+            font-size: 7vw;
+            line-height: 1.1;
+            font-weight: $font-weight-bold;
+            font-family: $font-family-display;
+
+        } @else if $type == 2 {
+            font-size: 4rem;
+            font-weight: $font-weight-bold;
+            font-family: $font-family-display;
+            
+        } @else if $type == 3 {
+            font-size: 1.6rem;
+            font-weight: $font-weight-bold;
+            font-family: $font-family-display;
+
+        } @else {
+            @error '#{$type}:沒有這個type';
+        }
+
+    } @else if $lv == 'head' {
+        @if $type == 1 {
+            font-size: 3.6rem;
+            font-weight: $font-weight-bold;
+            font-family: $font-family-head;
+
+        } @else if $type == 2 {
+            font-size: 2.4rem;
+            line-height: 1.6;
+            font-weight: $font-weight-bold;
+            font-family: $font-family-head;
+
+        } @else if $type == 3 {
+            font-size: 2rem;
+            font-weight: $font-weight-bold;
+            font-family: $font-family-head;
+            
+        } @else {
+            @error '#{$type}:沒有這個type';
+        }
+    } @else if $lv == 'body' {
+            line-height: 1.6;
+
+        @if $type == 16 {
+            font-size: 1.6rem;
+            font-weight: $font-weight-normal;
+            font-family: $font-family-body;
+
+            // 如果英文版內文字不同時用法
+            // body.language-en &, &.-en {
+            //     font-family: map-get($font-family, en);
+            // }
+        } @else {
+            @error '#{$type}:沒有這個type';
+        }
+
+    } @else {
+        @error '#{$lv}:沒有這個level';
+    }
+}

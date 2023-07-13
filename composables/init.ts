@@ -1,13 +1,5 @@
-
 export const ESinit = (data:{ scroll: Function }) => {
-    console.log("%c ★ Made by ES design ★ We are looking for awsome Front-End developer ↓", "font-weight:600;background:#ffe800;padding:5px 15px;border-radius:5px; color:#000000;font-size:14px;")
-    console.log("%c https://www.cakeresume.com/companies/es-design/jobs !! JOIN US !!! ", "background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;")
-    console.log("%c 架構採用 Nuxt3 X WordPress，網站目前正在測試中～如果有任何問題歡迎回報給我們 hi@e-s.tw ", "background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;")
-
-    // const route = useRoute()
-    // const { hook } = useNuxtApp()
-    const { $LCscroll } = useNuxtApp()
-
+    // 載入動畫
     let isFirstLand = true
     const pageloaded = usePageLoaded()
     watch(pageloaded, (next) => {
@@ -27,10 +19,10 @@ export const ESinit = (data:{ scroll: Function }) => {
 
     // 換頁前
     const router = useRouter()
+    const { $LCscroll } = useNuxtApp()
 
     router.beforeEach((to, from) => {
         console.log('★★ router beforeEach')
-        
         pageloaded.value = false
 
         const oldContainer = document.querySelector('main')
@@ -49,13 +41,11 @@ export const ESinit = (data:{ scroll: Function }) => {
         
     })
 
-    // // 換頁後
+    // 換頁後
     const { hook } = useNuxtApp()
     const vueTransitionTime = 600 // leave 0.2 + enter 0.4 = 0.6
 
     hook('page:finish', () => {
-
-
         if (!isFirstLand) {
 
             setTimeout(() => {
@@ -72,4 +62,16 @@ export const ESinit = (data:{ scroll: Function }) => {
         
     })
     
+}
+if(process.server) {
+    console.log('\n');
+    console.log('.                         .-.' );
+    console.log(' (_______________________()6 `--,' );
+    console.log(' (   __________________   /""""' );
+    console.log(' //\\                  //\\' );
+    console.log(' \x1b[0m \x1b[33m%s\x1b[0m', '● ES Boilerplate is !!Awesome!! v1.0.0 ●', );
+    console.log('\n' );
+} else {
+    console.log("%c ★ Made by ES design ★ We are looking for awsome Front-End developer ↓", "font-weight:600;background:#ffe800;padding:5px 15px;border-radius:5px; color:#000000;font-size:14px;")
+    console.log("%c https://www.cakeresume.com/companies/es-design/jobs !! JOIN US !!! ", "background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;")
 }

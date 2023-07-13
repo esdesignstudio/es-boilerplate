@@ -1,0 +1,8 @@
+@each $break, $breakpoint in $breakpoints {
+    @include media-breakpoint-up($break) {
+        .container {
+            padding-right: map-get($container-margin, $break);
+            padding-left: map-get($container-margin, $break);
+        }
+    }
+}

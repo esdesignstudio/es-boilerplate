@@ -23,6 +23,7 @@
         flex-direction: column;
         top: 0;
         left: 50%;
+        z-index: 999;
         transform: translateX(-50%);
         pointer-events: none;
 
@@ -47,8 +48,8 @@
             pointer-events: none;
 
             &-col {
-                background-color: rgba(255,255,255,.8);
-                opacity: 0.1;
+                border-left: 1px solid rgba(0,0,0,.1);
+                border-right: 1px solid rgba(0,0,0,.1);
 
                 &.-desktop {
                     @include size(calc((100% - (11 * 24px)) / 12), 100%);

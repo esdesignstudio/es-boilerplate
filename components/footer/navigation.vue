@@ -20,8 +20,8 @@
             name: 'Home',
             link: '/',
         }, {
-            name: 'About',
-            link: '/about',
+            name: 'Animation',
+            link: '/Animation',
         }, {
             name: 'Blog',
             link: '/blog',

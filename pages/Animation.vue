@@ -25,7 +25,18 @@
 
     const pageloaded = usePageLoaded()
     pageloaded.value = true
-        
+    
+    const pageTitle = ref('Animation')
+    const route = useRoute()
+    useHead({
+        title: pageTitle,
+        meta: useMetaReturn({
+            title: pageTitle,
+            description: '要接 API',
+            image: '要接 API',
+            url: useRuntimeConfig().public.siteUrl + route.path 
+        })
+    })
 </script>
 <style lang="scss">
     $class-name: page-about;

@@ -38,14 +38,14 @@ export default defineNuxtConfig({
     },
 
     css: [
-        '@/style/_main.scss', // global css
+        '@/assets/styles/_main.scss', // global css
     ],
 
     vite: {
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: '@import "@/style/mixins/_mixin.scss";',
+                    additionalData: '@import "@/assets/styles/mixins/_mixin.scss";',
                 },
             },
         },
@@ -77,7 +77,7 @@ export default defineNuxtConfig({
         },
     },
 
-    devtools: {
-        enabled: process.env.ENV === 'dev',
-    }
+    // devtools: {
+    //     enabled: process.env.ENV === 'dev',
+    // }
 })
