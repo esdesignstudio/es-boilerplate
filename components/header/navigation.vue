@@ -5,7 +5,7 @@
             :key="index"
             :to="item.link"
             :title="item.title"
-            class="grid_item col1-4"
+            class=""
         >
             <span>{{ item.name }}</span>
         </NuxtLink>

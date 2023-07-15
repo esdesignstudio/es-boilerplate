@@ -1,36 +1,8 @@
 
 // ==========================================================================
-// Settings / Config / CSS VARS
-// ==========================================================================
-
-:root {
-
-    // Grid
-    --grid-columns:     4;
-    --grid-gutter:      #{rem(10px)};
-    --grid-gutter-half: calc(0.5 * var(--grid-gutter));
-    --grid-margin:      #{rem(10px)};
-
-    // Container
-    --container-width:  calc(100% - 2 * map-get($container-margin, desktop));
-
-
-    // // Colors
-    // @each $color, $value in $colors {
-    //     --color-#{"" + $color}: #{$value};
-    // }
-
-    @media (min-width: $from-small) {
-        --grid-columns:     #{$grid-columns};
-        --grid-gutter:      #{rem(16px)};
-        --grid-margin:      #{rem(20px)};
-    }
-}
-
-// ==========================================================================
 // Tools / Grid Columns
 // ==========================================================================
-
+// Help: https://css-tricks.com/snippets/css/complete-guide-grid/
 //
 // Grid layout system.
 //
@@ -40,30 +12,22 @@
 
 $colsMax: $grid-columns + 1;
 
-$breakpoints-lc: (
-    "null" null,
-    "from-tiny" $from-tiny,
-    "from-small" $from-small,
-    "from-medium" $from-medium,
-    "from-large" $from-large,
-    "from-big" $from-big
-) !default;
 
-@each $breakpoint, $mediaquery in $breakpoints-lc {
-    @for $fromIndex from 1 through $colsMax {
-        @for $toIndex from 1 through $colsMax {
-            @if $mediaquery == null {
-                .col#{$fromIndex}-#{$toIndex} {
-                    --gc-start: #{$fromIndex};
-                    --gc-end: #{$toIndex};
-                }
-            } @else {
-                .col#{$fromIndex}-#{$toIndex}\@#{$breakpoint} {
-                    --gc-start: #{$fromIndex};
-                    --gc-end: #{$toIndex};
-                    @media (min-width: #{$mediaquery}) {
-                        --gc-start: #{$fromIndex};
-                        --gc-end: #{$toIndex};
+@each $break, $breakpoint in $breakpoints {
+    @include media-breakpoint-up($break) {
+
+        // 網格開始
+        @for $startIndex from 1 through $colsMax {
+
+            // 網格結束
+            @for $endIndex from 1 through $colsMax {
+
+                .col-#{$startIndex}-#{$endIndex}-#{$break} {
+                    grid-column-start: #{$startIndex};
+                    grid-column-end: #{$endIndex};
+                    @media (min-width: #{$breakpoint}) {
+                        grid-column-start: #{$startIndex};
+                        grid-column-end: #{$endIndex};
                     }
                 }
             }
@@ -75,72 +39,56 @@ $breakpoints-lc: (
 // ==========================================================================
 // Grid helper
 // ==========================================================================
-// Help: https://css-tricks.com/snippets/css/complete-guide-grid/
+// 
 //
-/**
- * Usage:
- *
- * ```html
- * <div class="grid -col-4 -col-12@from-medium -gutters">
- *     <div class="grid_item u-gc-1/2 u-gc-3/9@from-medium">
- *         <p>Hello</p>
- *     </div>
- *     <div class="grid_item u-gc-3/4 u-gc-9/13@from-medium">
- *         <p>Hello</p>
- *     </div>
- * </div>
- * ```
- */
 
  .grid {
     display: grid;
     width: 100%;
 
-    &:is(ul, ol) {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    // ==========================================================================
-    // Cols
-    // ==========================================================================
-
-    // Responsive grid columns based on `--grid-columns`
-    &.-cols {
-        grid-template-columns: repeat(var(--grid-columns), 1fr);
-    }
-
-    &.-col-#{$grid-columns} {
-        grid-template-columns: repeat(#{$grid-columns}, 1fr);
-    }
-
-    &.-col-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    &.-col-#{$grid-columns}\@from-medium {
-        @media (min-width: $from-medium) {
-            grid-template-columns: repeat(#{$grid-columns}, 1fr);
+    @each $break, $breakpoint in $breakpoints {
+        @include media-breakpoint-up($break) {
+            grid-template-columns: repeat($grid-columns, 1fr);
+            gap: map-get($gutter, desktop);
+            column-gap:  map-get($gutter, desktop);
         }
     }
 
-    // ==========================================================================
-    // Gutters
-    // ==========================================================================
+    // &:is(ul, ol) {
+    //     margin: 0;
+    //     padding: 0;
+    //     list-style: none;
+    // }
 
-    // Gutters rows and columns
-    &.-gutters {
-        gap: map-get($gutter, desktop);
-        column-gap:  map-get($gutter, desktop);
-    }
+    // // ==========================================================================
+    // // Cols
+    // // ==========================================================================
+
+    // // Responsive grid columns based on `--grid-columns`
+    // &.-cols {
+    //     grid-template-columns: repeat(var(--grid-columns), 1fr);
+    // }
+
+    // &.-col-#{$grid-columns} {
+    //     grid-template-columns: repeat(#{$grid-columns}, 1fr);
+    // }
+
+    // &.-col-4 {
+    //     grid-template-columns: repeat(4, 1fr);
+    // }
+
+    // &.-col-#{$grid-columns}\@from-medium {
+    //     @media (min-width: $from-medium) {
+    //         grid-template-columns: repeat(#{$grid-columns}, 1fr);
+    //     }
+    // }
 
     // ==========================================================================
     // Modifiers
     // ==========================================================================
-    &.-full-height {
-        height: 100%;
-    }
+    // &.-full-height {
+    //     height: 100%;
+    // }
 
     // ==========================================================================
     // Aligns
@@ -149,92 +97,92 @@ $breakpoints-lc: (
     // ==========================================================================
     // Items inside cells
     //
-    &.-top-items {
-        align-items: start;
-    }
-    &.-right-items {
-        justify-items: end;
-    }
-    &.-bottom-items {
-        align-items: end;
-    }
-    &.-left-items {
-        justify-items: start;
-    }
-    &.-center-items {
-        align-items: center;
-        justify-items: center;
-    }
-    &.-center-items-x {
-        justify-items: center;
-    }
-    &.-center-items-y {
-        align-items: center;
-    }
-    &.-stretch-items {
-        align-items: stretch;
-        justify-items: stretch;
-    }
+    // &.-top-items {
+    //     align-items: start;
+    // }
+    // &.-right-items {
+    //     justify-items: end;
+    // }
+    // &.-bottom-items {
+    //     align-items: end;
+    // }
+    // &.-left-items {
+    //     justify-items: start;
+    // }
+    // &.-center-items {
+    //     align-items: center;
+    //     justify-items: center;
+    // }
+    // &.-center-items-x {
+    //     justify-items: center;
+    // }
+    // &.-center-items-y {
+    //     align-items: center;
+    // }
+    // &.-stretch-items {
+    //     align-items: stretch;
+    //     justify-items: stretch;
+    // }
 
     // ==========================================================================
     // Cells
     //
-    &.-top-cells {
-        align-content: start;
-    }
-    &.-right-cells {
-        justify-content: end;
-    }
-    &.-bottom-cells {
-        align-content: end;
-    }
-    &.-left-cells {
-        justify-content: start;
-    }
-    &.-center-cells {
-        align-content: center;
-        justify-content: center;
-    }
-    &.-center-cells-x {
-        justify-content: center;
-    }
-    &.-center-cells-y {
-        align-content: center;
-    }
-    &.-stretch-cells {
-        align-content: stretch;
-        justify-content: stretch;
-    }
-    &.-space-around-cells {
-        align-content: space-around;
-        justify-content: space-around;
-    }
-    &.-space-around-cells-x {
-        justify-content: space-around;
-    }
-    &.-space-around-cells-y {
-        align-content: space-around;
-    }
-    &.-space-between-cells {
-        justify-content: space-between;
-        align-content: space-between;
-    }
-    &.-space-between-cells-x {
-        justify-content: space-between;
-    }
-    &.-space-between-cells-y {
-        align-content: space-between;
-    }
-    &.-space-evenly-cells {
-        justify-content: space-evenly;
-        align-content: space-evenly;
-    }
-    &.-space-evenly-cells-x {
-        justify-content: space-evenly;
-    }
-    &.-space-evenly-cells-y {
-        align-content: space-evenly;
-    }
+    // &.-top-cells {
+    //     align-content: start;
+    // }
+    // &.-right-cells {
+    //     justify-content: end;
+    // }
+    // &.-bottom-cells {
+    //     align-content: end;
+    // }
+    // &.-left-cells {
+    //     justify-content: start;
+    // }
+    // &.-center-cells {
+    //     align-content: center;
+    //     justify-content: center;
+    // }
+    // &.-center-cells-x {
+    //     justify-content: center;
+    // }
+    // &.-center-cells-y {
+    //     align-content: center;
+    // }
+    // &.-stretch-cells {
+    //     align-content: stretch;
+    //     justify-content: stretch;
+    // }
+    // &.-space-around-cells {
+    //     align-content: space-around;
+    //     justify-content: space-around;
+    // }
+    // &.-space-around-cells-x {
+    //     justify-content: space-around;
+    // }
+    // &.-space-around-cells-y {
+    //     align-content: space-around;
+    // }
+    // &.-space-between-cells {
+    //     justify-content: space-between;
+    //     align-content: space-between;
+    // }
+    // &.-space-between-cells-x {
+    //     justify-content: space-between;
+    // }
+    // &.-space-between-cells-y {
+    //     align-content: space-between;
+    // }
+    // &.-space-evenly-cells {
+    //     justify-content: space-evenly;
+    //     align-content: space-evenly;
+    // }
+    // &.-space-evenly-cells-x {
+    //     justify-content: space-evenly;
+    // }
+    // &.-space-evenly-cells-y {
+    //     align-content: space-evenly;
+    // }
 }
 
 // ==========================================================================
@@ -242,11 +190,11 @@ $breakpoints-lc: (
 // ==========================================================================
 // By default, a grid item takes full width of its parent.
 //
-.grid_item {
-    grid-column-start: var(--gc-start, 1);
-    grid-column-end: var(--gc-end, -1);
+// .grid_item {
+//     grid-column-start: var(--gc-start, 1);
+//     grid-column-end: var(--gc-end, -1);
 
-    &.-align-end {
-        align-self: end;
-    }
-}
+//     &.-align-end {
+//         align-self: end;
+//     }
+// }

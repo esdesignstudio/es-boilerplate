@@ -65,7 +65,9 @@ export default defineNuxtConfig({
     modules: [
         '@nuxtjs/i18n',
         '@formkit/nuxt',
-        'nuxt-icons'
+        'nuxt-icons',
+        'dayjs-nuxt',
+        'nuxt-swiper'
     ],
 
     runtimeConfig: {
@@ -75,6 +77,14 @@ export default defineNuxtConfig({
             apiUrl: process.env.API_URL + '/wp-json/api',
             siteName: process.env.APP_NAME
         },
+    },
+
+    swiper: {
+        // Swiper options
+        //----------------------
+        // prefix: 'Swiper',
+        // styleLang: 'css',
+        // modules: ['navigation', 'pagination'], // all modules are imported by default
     },
 
     // devtools: {

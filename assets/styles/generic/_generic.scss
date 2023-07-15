@@ -22,10 +22,8 @@ html {
 }
 
 
-// Add the correct display in IE 10-.
-// 1. Add the correct display in IE.
-
-template, // [1]
+// 矯正顯示 IE 10
+template,
 [hidden] {
     display: none;
 }

@@ -5,15 +5,15 @@
             '-scrolled': scrolled,
         }"
     >
-        <div class="header-index__wrap grid -col-4 -col-12@from-medium -gutters">
+        <div class="header-index__wrap grid">
             <NuxtLink 
                 to="/"
-                class="header-index__logo grid_item col1-4"
+                class="header-index__logo col-1-4-mobile"
             >
                 <nuxt-icon name="logo" />
                 ES Boilerplate
             </NuxtLink>
-            <div class="header-index__navigation grid_item col5-13">
+            <div class="header-index__navigation col-5-13-mobile">
                 <HeaderNavigation />
             </div>
         </div>

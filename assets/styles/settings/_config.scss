@@ -6,8 +6,12 @@ $colors: (
     brand-1:   #ffe800,
     black-1:   #000000,
     gray:      #cec8c2,
+    gray-2:    #6D676E,
     gray-line: #a5a09c,
     white:     #ffffff,
+    warning:   #C16200,
+    success:   #537A5A,
+    error:     #C42021,
 );
 
 // Grid
@@ -60,24 +64,4 @@ $breakpoints: (
     desktop: 1200px,
     large:   1920px,
 );
-
-
-$from-tiny:     500px              !default;
-$to-tiny:       $from-tiny - 1     !default;
-$from-small:    700px              !default;
-$to-small:      $from-small - 1    !default;
-$from-medium:   1000px             !default;
-$to-medium:     $from-medium - 1   !default;
-$from-large:    1200px             !default;
-$to-large:      $from-large - 1    !default;
-$from-big:      1400px             !default;
-$to-big:        $from-big - 1      !default;
-$from-huge:     1600px             !default;
-$to-huge:       $from-huge - 1     !default;
-$from-enormous: 1800px             !default;
-$to-enormous:   $from-enormous - 1 !default;
-$from-gigantic: 2000px             !default;
-$to-gigantic:   $from-gigantic - 1 !default;
-$from-colossal: 2400px             !default;
-$to-colossal:   $from-colossal - 1 !default;
 

@@ -36,6 +36,10 @@
     //     window.removeEventListener("scrollEvent", scrollEvent.value);
     // })
 
+    onMounted(() => {
+        console.log(window.navigator)
+    })
+
 
     const route = useRoute()
     useHead({

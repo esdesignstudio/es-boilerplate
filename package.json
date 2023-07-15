@@ -10,6 +10,7 @@
     "@nuxt/devtools": "^0.6.7",
     "@nuxtjs/i18n": "^8.0.0-beta.13",
     "@nuxtjs/style-resources": "^1.2.1",
+    "dayjs-nuxt": "^1.1.2",
     "nuxt": "3.6.2",
     "nuxt-icons": "^3.1.0",
     "sass": "^1.52.1",
@@ -18,10 +19,9 @@
   },
   "dependencies": {
     "@formkit/nuxt": "^1.0.0-beta.15",
-    "dayjs": "^1.11.5",
     "gsap": "^3.12.2",
     "locomotive-scroll": "^5.0.0-beta.8",
-    "swiper": "^8.1.5",
+    "nuxt-swiper": "^1.1.1",
     "vue-gtag-next": "^1.14.0"
   }
 }
