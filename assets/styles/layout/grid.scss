@@ -4,11 +4,7 @@
 // ==========================================================================
 // Help: https://css-tricks.com/snippets/css/complete-guide-grid/
 //
-// Grid layout system.
-//
-// This tool generates columns for all needed media queries.
-// Unused classes will be purge by the css post-processor.
-//
+// Grid layout system by locomotive.
 
 $colsMax: $grid-columns + 1;
 
@@ -54,41 +50,34 @@ $colsMax: $grid-columns + 1;
         }
     }
 
-    // &:is(ul, ol) {
-    //     margin: 0;
-    //     padding: 0;
-    //     list-style: none;
-    // }
+    &:is(ul, ol) {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 
     // // ==========================================================================
     // // Cols
     // // ==========================================================================
 
     // // Responsive grid columns based on `--grid-columns`
-    // &.-cols {
-    //     grid-template-columns: repeat(var(--grid-columns), 1fr);
-    // }
-
-    // &.-col-#{$grid-columns} {
-    //     grid-template-columns: repeat(#{$grid-columns}, 1fr);
-    // }
-
-    // &.-col-4 {
-    //     grid-template-columns: repeat(4, 1fr);
-    // }
-
-    // &.-col-#{$grid-columns}\@from-medium {
-    //     @media (min-width: $from-medium) {
-    //         grid-template-columns: repeat(#{$grid-columns}, 1fr);
-    //     }
-    // }
+    
+    @each $break, $breakpoint in $breakpoints {
+        @for $cols from 1 through $colsMax {
+            @include media-breakpoint-up($break) {
+                &.-cols-#{$cols}-#{$break} {
+                    grid-template-columns: repeat(#{$cols}, 1fr);
+                }
+            }
+        }
+    }
 
     // ==========================================================================
     // Modifiers
     // ==========================================================================
-    // &.-full-height {
-    //     height: 100%;
-    // }
+    &.-full-height {
+        height: 100%;
+    }
 
     // ==========================================================================
     // Aligns
@@ -97,32 +86,32 @@ $colsMax: $grid-columns + 1;
     // ==========================================================================
     // Items inside cells
     //
-    // &.-top-items {
-    //     align-items: start;
-    // }
-    // &.-right-items {
-    //     justify-items: end;
-    // }
-    // &.-bottom-items {
-    //     align-items: end;
-    // }
-    // &.-left-items {
-    //     justify-items: start;
-    // }
-    // &.-center-items {
-    //     align-items: center;
-    //     justify-items: center;
-    // }
-    // &.-center-items-x {
-    //     justify-items: center;
-    // }
-    // &.-center-items-y {
-    //     align-items: center;
-    // }
-    // &.-stretch-items {
-    //     align-items: stretch;
-    //     justify-items: stretch;
-    // }
+    &.-align-top {
+        align-items: start;
+    }
+    &.-align-right {
+        justify-items: end;
+    }
+    &.-align-bottom {
+        align-items: end;
+    }
+    &.-align-left {
+        justify-items: start;
+    }
+    &.-align-center {
+        align-items: center;
+        justify-items: center;
+    }
+    &.-align-center-x {
+        justify-items: center;
+    }
+    &.-align-center-y {
+        align-items: center;
+    }
+    &.-align-stretch-items {
+        align-items: stretch;
+        justify-items: stretch;
+    }
 
     // ==========================================================================
     // Cells
@@ -184,17 +173,3 @@ $colsMax: $grid-columns + 1;
     //     align-content: space-evenly;
     // }
 }
-
-// ==========================================================================
-// Grid item
-// ==========================================================================
-// By default, a grid item takes full width of its parent.
-//
-// .grid_item {
-//     grid-column-start: var(--gc-start, 1);
-//     grid-column-end: var(--gc-end, -1);
-
-//     &.-align-end {
-//         align-self: end;
-//     }
-// }

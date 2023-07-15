@@ -1,18 +1,10 @@
 // 原本樣式
 // @import '@formkit/themes/genesis';
 
-
 //--------------------
 // 客製化元件
 //--------------------
 
-input,
-select,
-textarea {
-    @include typo('body', 16);
-    padding: 2rem 1rem;
-    border: 1px solid map-get($colors, gray-line);
-}
 // 下拉選單
 .es-taglist,
 .es-select {
@@ -47,7 +39,7 @@ textarea {
     z-index: 100;
     overflow: hidden;
     border-radius: .25rem;
-    box-shadow: 0 0 0 1px map-get($colors, gray-line);
+    border: 1px solid map-get($colors, gray-line);
 
     &__wrap {
         padding: .3rem 0;

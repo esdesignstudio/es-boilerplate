@@ -1,6 +1,6 @@
-import MEMBER from './member.js'
+import FORM from './form.js'
 
 export default {
     welcome: 'English',
-    MEMBER
+    FORM
 }

@@ -1,10 +1,15 @@
 <template>
     <div class="display-form">
         <div class="container">
-            <h1>表格展示</h1>
-            <div class="display-form__content">
-                <div>
-                    <h2>登入表格範例</h2>
+            <h1>
+                <ElementsSlideUpEach
+                    text="Form display"
+                />
+                <b data-scroll>表單範例</b>
+            </h1>
+            <div class="display-form__content grid">
+                <div class="col-1-7-mobile">
+                    <h2>基本表單</h2>
                     <FormKit
                         type="form"
                         id="login-submit"
@@ -31,7 +36,7 @@
                                 validation-visibility="live"
                             />
                             <NuxtLink to="/forgotpass">
-                                {{ $t('member.forgot_pass') }}
+                                {{ $t('FORM.forgot_pass') }}
                             </NuxtLink>
                         </div>
                     
@@ -49,9 +54,10 @@
                         </div>
                     </FormKit>
                 </div>
-                <div>
+                <div class="col-7-13-mobile">
                     <h2>客製化功能範例</h2>
                     
+                    {{ taglistData.selected }}
                     <FormKit
                         type="taglist"
                         title="分類"
@@ -59,7 +65,6 @@
                         v-model="taglistData.selected"
                         :options="taglistData.options"
                     />
-                    {{ taglistData.selected }}
 
                     <FormKit
                         type="dropdown"
@@ -109,8 +114,20 @@
     const submitHandler = (data) => {
         console.log('submitHandler', data)
     }
+
     
 
+    const pageTitle = ref('Form display')
+    const route = useRoute()
+    useHead({
+        title: pageTitle,
+        meta: useMetaReturn({
+            title: pageTitle,
+            description: '要接 API',
+            image: '要接 API',
+            url: useRuntimeConfig().public.siteUrl + route.path 
+        })
+    })
 </script>
 <style lang="scss">
     $class-name: display-form;
@@ -118,22 +135,29 @@
         padding: 5rem 0;
 
         h1 {
-            @include typo('head', 1);
+            @include typo('display', 1);
 
-            margin-bottom: 2rem;
+            > b {
+                @include typo('head', 2);
+
+                display: block;
+                margin: 6rem auto;
+            }
+
+            .text-slideup__item {
+                line-height: 1.2;
+                margin-bottom: -1.5vw;
+
+            }
         }
 
         &__content {
-            display: flex;
+            // display: flex;
             
             h2 {
                 @include typo('head', 2);
 
                 margin-bottom: 2rem;
-            }
-
-            > div {
-                flex: 1;
             }
         }
     }
