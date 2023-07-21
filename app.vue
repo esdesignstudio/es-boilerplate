@@ -10,10 +10,20 @@
         <NuxtLayout name="default">
             <NuxtPage />
         </NuxtLayout>
+        
+        <NuxtErrorBoundary @error="logSomeError">
+            <template #error="{ error }">
+                <p>An error occurred: {{ error }}</p>
+            </template>
+        </NuxtErrorBoundary>
     </div>
 </template>
 <script setup>
     const pageloaded = usePageLoaded()
+
+    const logSomeError = (error) => {
+        console.log('logSomeError', error)
+    }
     
     onMounted(() => {
         ESinit()

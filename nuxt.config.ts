@@ -70,6 +70,23 @@ export default defineNuxtConfig({
         'nuxt-swiper'
     ],
 
+    i18n: {
+        // 如果要有 Html 在翻譯包裡面才開啟
+        // compilation: {
+        //     strictMessage: false,
+        // },
+        defaultLocale: 'zh',
+        locales: [
+            { code: 'zh', iso: 'zh-TW', file: 'zh/index.js' },
+            { code: 'en', iso: 'en-US', file: 'en/index.js' },
+        ],
+        lazy: true,
+        langDir: 'lang/',
+        
+    },
+
+    
+
     runtimeConfig: {
         public: {
             env: process.env.ENV,

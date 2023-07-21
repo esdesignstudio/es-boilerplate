@@ -12,11 +12,11 @@ export const useMetaReturn = (
         { property: 'og:title', content: title },
         { property: 'twitter:title', content: title },
 
-        { property: 'og:image', content: description },
-        { property: 'twitter:image', content: description },
+        { property: 'og:image', content: image },
+        { property: 'twitter:image', content: image },
         
-        { name: 'description', content: image },
-        { property: 'twitter:description', content: image },
-        { property: 'og:description', content: image },
+        { name: 'description', content: description },
+        { property: 'twitter:description', content: description },
+        { property: 'og:description', content: description },
     ]
 }

@@ -1,6 +1,6 @@
 import FORM from './form.js'
 
 export default {
-    welcome: 'English',
+    welcome: '歡迎 {msg}',
     FORM
 }

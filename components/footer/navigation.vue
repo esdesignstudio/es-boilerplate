@@ -11,6 +11,13 @@
                     {{ item.name }}
                 </NuxtLink>
             </li>
+            <li>
+                <NuxtLink
+                    :to="switchLocalePath('en')"
+                >
+                    語言切換
+                </NuxtLink>
+            </li>
         </ul>
     </div>
 </template>
@@ -21,10 +28,13 @@
             link: '/',
         }, {
             name: 'Animation',
-            link: '/Animation',
+            link: '/animation',
         }, {
-            name: 'Blog',
-            link: '/blog',
+            name: 'Layout',
+            link: '/layout',
+        }, {
+            name: 'Form',
+            link: '/form',
         },
     ])
 </script>
@@ -33,13 +43,10 @@
     .#{$class-name} {
         ul {
             display: flex;
+            justify-content: flex-end;
+
             li {
-                a {
-                    padding-left: 1rem;
-                    &:hover {
-                        opacity: .5;
-                    }
-                }
+                margin-left: 4rem;
             }
         }
     }

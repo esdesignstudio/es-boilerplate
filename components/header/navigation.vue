@@ -3,9 +3,8 @@
         <NuxtLink
             v-for="(item, index) in navs"
             :key="index"
-            :to="item.link"
+            :to="localePath(item.link)"
             :title="item.title"
-            class=""
         >
             <span>{{ item.name }}</span>
         </NuxtLink>
@@ -33,6 +32,10 @@
             link: '/form',
         },
     ])
+const i18n = useI18n()
+if (process.client) {console.log(i18n)
+}
+
 </script>
 <style lang="scss">
 $class-name: navigation-main;
