@@ -6,7 +6,7 @@
 //
 // Grid layout system by locomotive.
 
-$colsMax: $grid-columns + 1;
+$colsMax: map-get($grid-columns, desktop) + 1;
 
 
 @each $break, $breakpoint in $breakpoints {
@@ -44,7 +44,7 @@ $colsMax: $grid-columns + 1;
 
     @each $break, $breakpoint in $breakpoints {
         @include media-breakpoint-up($break) {
-            grid-template-columns: repeat($grid-columns, 1fr);
+            grid-template-columns: repeat(map-get($grid-columns, $break), 1fr);
             gap: map-get($gutter, desktop);
             column-gap:  map-get($gutter, desktop);
         }

@@ -30,7 +30,14 @@ $gutter: (
     desktop:  2.4rem,
 );
 
-$grid-columns:      12;
+$grid-columns: (
+    mobile:   4,
+    tablet:   8,
+    medium:   12,
+    desktop:  12,
+    large:    12,
+);
+
 $grid-row-columns:  6;
 $grid-gutter-width: 2.4rem;
 
@@ -58,7 +65,7 @@ $border: 1px;
 // =============================================================================
 
 $breakpoints: (
-    mobile:  450px,
+    mobile:  0px,
     tablet:  768px,
     medium:  1024px,
     desktop: 1200px,
