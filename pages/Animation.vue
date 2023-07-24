@@ -4,7 +4,11 @@
             <div class="page-animation__content">
                 <h1>唯有深入思考各個角度，才能真正創造出帥氣的作品<br>- <br>佐藤可士</h1>
                 <section>
-                    <h2>MARQUEE</h2>
+                    <h2>
+                        <ElementsSlideUpEach
+                            text="MARQUEE"
+                        />
+                    </h2>
                     <h3>PARAMS</h3>
                     <div class="page-animation__content-params">
                         <table>
@@ -109,7 +113,11 @@
                     </div>
                 </section>
                 <section>
-                    <h2>NUMBER COUNTER</h2>
+                    <h2>
+                        <ElementsSlideUpEach
+                            text="NUMBER COUNTER"
+                        />
+                    </h2>
                     <h3>PARAMS</h3>
                     <div class="page-animation__content-params">
                         <table>
@@ -241,7 +249,11 @@
                     </div>
                 </section>
                 <section>
-                    <h2>PIN HORIZONTAL</h2>
+                    <h2>
+                        <ElementsSlideUpEach
+                            text="PIN HORIZONTAL"
+                        />
+                    </h2>
                     <h3>PARAMS</h3>
                     <div class="page-animation__content-params">
                         <table>
@@ -419,7 +431,6 @@
         &__content {
             display: flex;
             flex-direction: column;
-            gap: 6.4rem;
             padding-bottom: 12.8rem;
             
             h1 {
@@ -434,11 +445,12 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 6.4rem 0;
+                padding: 12.8rem 0;
+                
                 border-bottom: 2px solid map-get($colors, black-1);
                 
 
-                &:not(:last-child) {
+                &:nth-child(2) {
                     border-top: 2px solid map-get($colors, black-1);
                 }
 
