@@ -28,13 +28,15 @@
 
     onMounted(() => {
         nextTick(() => {
-            Prism.plugins.NormalizeWhitespace.setDefaults({
-                'remove-trailing': true,
-                'remove-indent': true,
-                'left-trim': true,
-                'right-trim': true,
-            })
-            Prism.highlightAll()
+            setTimeout(() => {
+                Prism.plugins.NormalizeWhitespace.setDefaults({
+                    'remove-trailing': true,
+                    'remove-indent': true,
+                    'left-trim': true,
+                    'right-trim': true,
+                })
+                Prism.highlightAll()
+            }, 601); // reset after page transition
         })
     })
 </script>

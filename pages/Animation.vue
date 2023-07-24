@@ -44,12 +44,14 @@
                                     <td>Number</td>
                                     <td>1</td>
                                     <td>跑馬燈速度</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td>reverse</td>
                                     <td>Boolean</td>
                                     <td>false</td>
                                     <td>往回滾動時是否反轉跑馬燈方向</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -146,8 +148,8 @@
         &__content {
             display: flex;
             flex-direction: column;
-            gap: 12.8rem;
-            padding-bottom: 12.8rem;
+            gap: 6.4rem;
+            padding-bottom: 80rem;
             
             h1 {
                 @include typo('head', 1);
@@ -162,11 +164,11 @@
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 6.4rem 0;
-                border-top: 2px solid map-get($colors, black-1);
+                border-bottom: 2px solid map-get($colors, black-1);
                 
 
                 &:not(:last-child) {
-                    border-bottom: 2px solid map-get($colors, black-1);
+                    border-top: 2px solid map-get($colors, black-1);
                 }
 
                 > h2 {
@@ -182,6 +184,8 @@
             }
 
             &-params {
+                @include size(100%, auto);
+
                 > table {
                     @include size(100%, auto);
 
@@ -192,35 +196,50 @@
                     margin-bottom: 6.4rem;
 
                     > thead {
+                        @include size(100%, auto);
+
                         > tr {
+                            display: flex;
                             border-bottom: 1px solid map-get($colors, black-1);
 
                             > th {
-                                @include size(20rem, auto);
                                 @include typo('head', 3);
     
+                                flex: 1;
                                 padding-bottom: .8rem;
                                 text-align: left;
-                                padding-right: 2.4rem;
+                                padding-right: 2rem;
+
+                                &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+                                    flex: 0.6;
+                                }
                             }
                         }
                     }
 
                     > tbody {
+                        @include size(100%, auto);
+
                         display: flex;
                         flex-direction: column;
                         gap: 1.6rem;
 
                         > tr {
+                            display: flex;
                             border-bottom: 1px solid rgba(map-get($colors, black-1), .2);
 
                             > td {
-                                @include size(20rem, auto);
                                 @include typo('head', 3);
                                 
+                                flex: 1;
                                 padding-bottom: .8rem;
                                 font-weight: 400;
-                                padding-right: 2.4rem;
+                                padding-right: 2rem;
+                                min-width: 24;
+
+                                &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+                                    flex: 0.6;
+                                }
                             }
                         }
                     }
