@@ -161,16 +161,16 @@
                                 <tr>
                                     <td>start</td>
                                     <td>String</td>
-                                    <td>'100%'</td>
-                                    <td>動畫開始位置</td>
-                                    <td>100%, 50%, 0%...</td>
+                                    <td>'top 100%'</td>
+                                    <td>動畫開始位置<br><span>第一個參數為元素開始位置，第二個參數為視窗開始位置</span></td>
+                                    <td>top 100%, bottom-=80 0%, center+=50 50%...</td>
                                 </tr>
                                 <tr>
                                     <td>end</td>
                                     <td>String</td>
-                                    <td>'0%'</td>
-                                    <td>動畫結束位置</td>
-                                    <td>100%, 50%, 0%...</td>
+                                    <td>'bottom 0%'</td>
+                                    <td>動畫結束位置<br><span>第一個參數為元素結束位置，第二個參數為視窗結束位置</span></td>
+                                    <td>top 100%, bottom-=80 0%, center+=50 50%...</td>
                                 </tr>
                                 <tr>
                                     <td>enter</td>
@@ -338,9 +338,9 @@
                                 @include typo('head', 3);
     
                                 flex: 1;
-                                padding-bottom: .8rem;
                                 text-align: left;
                                 padding-right: 2rem;
+                                padding-bottom: .8rem;
 
                                 &:nth-child(1), &:nth-child(2), &:nth-child(3) {
                                     flex: 0.6;
@@ -364,13 +364,17 @@
                                 @include typo('head', 3);
                                 
                                 flex: 1;
+                                padding-right: 2.4rem;
                                 padding-bottom: .8rem;
-                                font-weight: 400;
-                                padding-right: 2rem;
                                 min-width: 24;
 
                                 &:nth-child(1), &:nth-child(2), &:nth-child(3) {
                                     flex: 0.6;
+                                }
+                                
+                                > span {
+                                    font-weight: 400;
+                                    font-size: 1.4rem;
                                 }
                             }
                         }
