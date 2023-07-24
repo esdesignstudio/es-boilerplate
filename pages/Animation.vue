@@ -1,12 +1,12 @@
 <template>
-    <div class="page-about">
+    <div class="page-animation">
         <div class="container">
-            <div class="page-about__content">
+            <div class="page-animation__content">
                 <h1>唯有深入思考各個角度，才能真正創造出帥氣的作品<br>- <br>佐藤可士</h1>
                 <section>
                     <h2>MARQUEE</h2>
                     <h3>PARAMS</h3>
-                    <div class="page-about__content-params">
+                    <div class="page-animation__content-params">
                         <table>
                             <thead>
                                 <tr>
@@ -57,7 +57,7 @@
                         </table>
                     </div>
                     <h3>EXAMPLE</h3>
-                    <div class="page-about__content-example">
+                    <div class="page-animation__content-example">
                         <ElementsMarquee
                             :data="[
                                 '唯有深入思考各個角度，才能真正創造出帥氣的作品'
@@ -65,7 +65,7 @@
                             :type="'text'"
                             :reverse="true"
                         />
-                        <div class="page-about__content-example-code">
+                        <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
                                 :data="`
@@ -80,7 +80,7 @@
                             />
                         </div>
                     </div>
-                    <div class="page-about__content-example">
+                    <div class="page-animation__content-example">
                         <ElementsMarquee
                             :data="[
                                 'https://source.unsplash.com/random/1024x768',
@@ -90,7 +90,7 @@
                             :direction="'right'"
                             :speed="0.5"
                         />
-                        <div class="page-about__content-example-code">
+                        <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
                                 :data="`
@@ -111,7 +111,7 @@
                 <section>
                     <h2>NUMBER COUNTER</h2>
                     <h3>PARAMS</h3>
-                    <div class="page-about__content-params">
+                    <div class="page-animation__content-params">
                         <table>
                             <thead>
                                 <tr>
@@ -197,7 +197,7 @@
                         </table>
                     </div>
                     <h3>EXAMPLE</h3>
-                    <div class="page-about__content-example">
+                    <div class="page-animation__content-example">
                         <ElementsNumberCounter
                             :from="0"
                             :to="100"
@@ -206,7 +206,7 @@
                             :start="'top 80%'"
                             :end="'bottom 20%'"
                         />
-                        <div class="page-about__content-example-code">
+                        <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
                                 :data="`
@@ -222,12 +222,12 @@
                             />
                         </div>
                     </div>
-                    <div class="page-about__content-example">
+                    <div class="page-animation__content-example">
                         <ElementsNumberCounter
                             :enter="true"
                             :back="true"
                         />
-                        <div class="page-about__content-example-code">
+                        <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
                                 :data="`
@@ -235,6 +235,143 @@
                                         :enter=&quot;true&quot;
                                         :back=&quot;true&quot;
                                     />
+                                `"
+                            />
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>PIN HORIZONTAL</h2>
+                    <h3>PARAMS</h3>
+                    <div class="page-animation__content-params">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>props</th>
+                                    <th>type</th>
+                                    <th>default</th>
+                                    <th>description</th>
+                                    <th>available params</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>wrapper</td>
+                                    <td>Object</td>
+                                    <td>{}</td>
+                                    <td>固定滾動元素</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>offset</td>
+                                    <td>Number</td>
+                                    <td>0</td>
+                                    <td>滾動偏移量</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>start</td>
+                                    <td>String</td>
+                                    <td>'bottom bottom'</td>
+                                    <td>固定滾動元素開始位置<br><span>第一個參數為元素開始位置，第二個參數為視窗開始位置</span></td>
+                                    <td>top 100%, bottom-=80 0%, center+=50 50%...</td>
+                                </tr>
+                                <tr>
+                                    <td>end</td>
+                                    <td>String</td>
+                                    <td>'bottom top'</td>
+                                    <td>固定滾動元素結束位置<br><span>第一個參數為元素結束位置，第二個參數為視窗結束位置</span></td>
+                                    <td>top 100%, bottom-=80 0%, center+=50 50%...</td>
+                                </tr>
+                                <tr>
+                                    <td>ease</td>
+                                    <td>String</td>
+                                    <td>'none'</td>
+                                    <td>動畫效果</td>
+                                    <td>power4.out, power4.in, power4.inOut...</td>
+                                </tr>
+                                <tr>
+                                    <td>markers</td>
+                                    <td>Boolean</td>
+                                    <td>false</td>
+                                    <td>是否顯示動畫觸發點（開發用）</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>EXAMPLE</h3>
+                    <div class="page-animation__content-example">
+                        <div
+                            class="page-animation__pin"
+                            ref="pinWrapper"
+                            style="width: 100%; height: 100vh; margin-bottom: 100vh;"
+                        >
+                            <ElementsPinHorizontal
+                                :wrapper="pinWrapper"
+                                :offset="96"
+                            >
+                                <template #wrapper>
+                                    <div class="page-animation__pin-wrapper">
+                                        <figure>
+                                            <img src="https://source.unsplash.com/random/1024x768">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://source.unsplash.com/random/1024x768?fruit">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://source.unsplash.com/random/1024x768">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://source.unsplash.com/random/1024x768?fruit">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://source.unsplash.com/random/1024x768">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://source.unsplash.com/random/1024x768?fruit">
+                                        </figure>
+                                    </div>
+                                </template>
+                            </ElementsPinHorizontal>
+                        </div>
+                        <div class="page-animation__content-example-code">
+                            <ElementsCode
+                                language="html"
+                                :data="`
+                                    <div
+                                        class=&quot;page-animation__pin&quot;
+                                        ref=&quot;pinWrapper&quot;
+                                        style=&quot;width: 100%; height: 100vh; margin-bottom: 100vh;&quot;
+                                    >
+                                        <ElementsPinHorizontal
+                                            :wrapper=&quot;pinWrapper&quot;
+                                            :offset=&quot;96&quot;
+                                        >
+                                            <template #wrapper>
+                                                <div class=&quot;page-animation__pin-wrapper&quot;>
+                                                    <figure>
+                                                        <img src=&quot;https://source.unsplash.com/random/1024x768&quot;>
+                                                    </figure>
+                                                    <figure>
+                                                        <img src=&quot;https://source.unsplash.com/random/1024x768?fruit&quot;>
+                                                    </figure>
+                                                    <figure>
+                                                        <img src=&quot;https://source.unsplash.com/random/1024x768&quot;>
+                                                    </figure>
+                                                    <figure>
+                                                        <img src=&quot;https://source.unsplash.com/random/1024x768?fruit&quot;>
+                                                    </figure>
+                                                    <figure>
+                                                        <img src=&quot;https://source.unsplash.com/random/1024x768&quot;>
+                                                    </figure>
+                                                    <figure>
+                                                        <img src=&quot;https://source.unsplash.com/random/1024x768?fruit&quot;>
+                                                    </figure>
+                                                </div>
+                                            </template>
+                                        </ElementsPinHorizontal>
+                                    </div>
                                 `"
                             />
                         </div>
@@ -262,6 +399,8 @@
     
     const pageTitle = ref('Animation')
     const route = useRoute()
+
+    const pinWrapper = ref(null)
     useHead({
         title: pageTitle,
         meta: useMetaReturn({
@@ -273,7 +412,7 @@
     })
 </script>
 <style lang="scss">
-    $class-name: page-about;
+    $class-name: page-animation;
     .#{$class-name} {
         overflow: hidden;
         
@@ -403,6 +542,48 @@
                     justify-content: flex-start;
                 }
             }
+        }
+
+        &__pin {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border: 1px solid map-get($colors, black-1);
+            border-radius: 1.6rem;
+
+            &::after {
+                @include typo('head', 2);
+
+                content: '#Pined Frame';
+                position: absolute;
+                top: 2.4rem;
+                left: 2.4rem;
+            }
+
+            &-wrapper {
+                display: flex;
+                gap: 2.4rem;
+
+                > figure {
+                    @include size(32rem, auto);
+                    @include aspect(0.75);
+    
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+    
+                    > img {
+                        @include size(100%);
+    
+                        position: absolute;
+                        object-fit: cover;
+                    }
+                }
+            }
+
         }
     }
 </style>
