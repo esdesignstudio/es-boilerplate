@@ -19,6 +19,7 @@
     </div>
 </template>
 <script setup>
+    const { $LCscroll } = useNuxtApp()
     const pageloaded = usePageLoaded()
 
     const logSomeError = (error) => {
@@ -27,6 +28,9 @@
     
     onMounted(() => {
         ESinit()
+        nextTick(() => {
+            window.$scroll = $LCscroll
+        })
     })
 </script>
 <style lang="scss">

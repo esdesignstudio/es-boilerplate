@@ -1,4 +1,5 @@
 import { resolve, dirname } from 'node:path'
+import prismjs from 'babel-plugin-prismjs'
 
 export default defineNuxtConfig({
     app: {
@@ -54,6 +55,13 @@ export default defineNuxtConfig({
                 '~': resolve(__dirname, './assets/')
             }
         },
+        plugins: [
+            prismjs({
+                languages: ['javascript', 'css', 'markup', 'php', 'json', 'scss', 'bash', 'nginx', 'sql', 'typescript', 'yaml'],
+                plugins: ['line-numbers', 'show-language'],
+                theme: 'okaidia',
+            }),
+        ],
         server: { // 解決開發時 websocket 問題
             hmr: {
                 protocol: 'ws',
