@@ -170,7 +170,7 @@
         "prefix": "tem",
         "body": [
             "<template>",
-            "    <div class=\"template\">",
+            "    <div class=\"page-template\">",
             "",
             "    </div>",
             "</template>",
@@ -183,7 +183,7 @@
             "    })",
             "</script>",
             "<style lang=\"scss\">",
-            "    $$class-name: template;",
+            "    $$class-name: page-template;",
             "    .#{$$class-name} {",
             "",
             "    }",
