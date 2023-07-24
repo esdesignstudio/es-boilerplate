@@ -3,9 +3,11 @@
         class="elements-code"
         :class="`language-${language}`"
     >
-        <pre>
-            <code v-text="data"></code>
-        </pre>
+        <ClientOnly>
+            <pre>
+                <code v-text="data"></code>
+            </pre>
+        </ClientOnly>
     </div>
 </template>
 <script setup>
@@ -25,13 +27,15 @@
     })
 
     onMounted(() => {
-        Prism.plugins.NormalizeWhitespace.setDefaults({
-            'remove-trailing': true,
-            'remove-indent': true,
-            'left-trim': true,
-            'right-trim': true,
+        nextTick(() => {
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+                'remove-trailing': true,
+                'remove-indent': true,
+                'left-trim': true,
+                'right-trim': true,
+            })
+            Prism.highlightAll()
         })
-        Prism.highlightAll()
     })
 </script>
 <style lang="scss">

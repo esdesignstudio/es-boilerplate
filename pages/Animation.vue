@@ -14,6 +14,7 @@
                                     <th>type</th>
                                     <th>default</th>
                                     <th>description</th>
+                                    <th>available params</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -22,18 +23,21 @@
                                     <td>Array</td>
                                     <td>[]</td>
                                     <td>資料</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td>type</td>
                                     <td>String</td>
                                     <td>'text'</td>
                                     <td>跑馬燈資料類型</td>
+                                    <td>text, img</td>
                                 </tr>
                                 <tr>
                                     <td>direction</td>
                                     <td>String</td>
                                     <td>'left'</td>
                                     <td>跑馬燈方向</td>
+                                    <td>left, right</td>
                                 </tr>
                                 <tr>
                                     <td>speed</td>
@@ -197,6 +201,7 @@
     
                                 padding-bottom: .8rem;
                                 text-align: left;
+                                padding-right: 2.4rem;
                             }
                         }
                     }
@@ -215,6 +220,7 @@
                                 
                                 padding-bottom: .8rem;
                                 font-weight: 400;
+                                padding-right: 2.4rem;
                             }
                         }
                     }
