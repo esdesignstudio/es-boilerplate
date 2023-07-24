@@ -108,6 +108,138 @@
                         </div>
                     </div>
                 </section>
+                <section>
+                    <h2>NUMBER COUNTER</h2>
+                    <h3>PARAMS</h3>
+                    <div class="page-about__content-params">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>props</th>
+                                    <th>type</th>
+                                    <th>default</th>
+                                    <th>description</th>
+                                    <th>available params</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>from</td>
+                                    <td>Number</td>
+                                    <td>0</td>
+                                    <td>數字起始值</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>to</td>
+                                    <td>Number</td>
+                                    <td>100</td>
+                                    <td>數字結束值</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>decimals</td>
+                                    <td>Number</td>
+                                    <td>1</td>
+                                    <td>小數點位數</td>
+                                    <td>1, 0.1, 0.01...</td>
+                                </tr>
+                                <tr>
+                                    <td>duration</td>
+                                    <td>Number</td>
+                                    <td>1</td>
+                                    <td>動畫時間</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>ease</td>
+                                    <td>String</td>
+                                    <td>'power4.out'</td>
+                                    <td>動畫效果</td>
+                                    <td>power4.out, power4.in, power4.inOut...</td>
+                                </tr>
+                                <tr>
+                                    <td>start</td>
+                                    <td>String</td>
+                                    <td>'100%'</td>
+                                    <td>動畫開始位置</td>
+                                    <td>100%, 50%, 0%...</td>
+                                </tr>
+                                <tr>
+                                    <td>end</td>
+                                    <td>String</td>
+                                    <td>'0%'</td>
+                                    <td>動畫結束位置</td>
+                                    <td>100%, 50%, 0%...</td>
+                                </tr>
+                                <tr>
+                                    <td>enter</td>
+                                    <td>Boolean</td>
+                                    <td>false</td>
+                                    <td>是否在再次進場時重新執行動畫</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>back</td>
+                                    <td>Boolean</td>
+                                    <td>false</td>
+                                    <td>是否在往回滾動時重新執行動畫</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>markers</td>
+                                    <td>Boolean</td>
+                                    <td>false</td>
+                                    <td>是否顯示動畫觸發點（開發用）</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>EXAMPLE</h3>
+                    <div class="page-about__content-example">
+                        <ElementsNumberCounter
+                            :from="0"
+                            :to="100"
+                            :decimals="0.1"
+                            :duration="3"
+                            :start="'top 80%'"
+                            :end="'bottom 20%'"
+                        />
+                        <div class="page-about__content-example-code">
+                            <ElementsCode
+                                language="html"
+                                :data="`
+                                    <ElementsNumberCounter
+                                        :from=&quot;0&quot;
+                                        :to=&quot;100&quot;
+                                        :decimals=&quot;0.1&quot;
+                                        :duration=&quot;3&quot;
+                                        :start=&quot;'top 80%'&quot;
+                                        :end=&quot;'bottom 20%'&quot;
+                                    />
+                                `"
+                            />
+                        </div>
+                    </div>
+                    <div class="page-about__content-example">
+                        <ElementsNumberCounter
+                            :enter="true"
+                            :back="true"
+                        />
+                        <div class="page-about__content-example-code">
+                            <ElementsCode
+                                language="html"
+                                :data="`
+                                    <ElementsNumberCounter
+                                        :enter=&quot;true&quot;
+                                        :back=&quot;true&quot;
+                                    />
+                                `"
+                            />
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
         <Footer />
@@ -149,7 +281,7 @@
             display: flex;
             flex-direction: column;
             gap: 6.4rem;
-            padding-bottom: 80rem;
+            padding-bottom: 12.8rem;
             
             h1 {
                 @include typo('head', 1);
