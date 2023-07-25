@@ -1,21 +1,32 @@
-export const esNotification = (data: {
-        type: '', title: '', message: ''
-    }) => {
-    if (document.querySelector('.es_notification')) {return false}
-    const div = document.createElement('div')
+export const esNotification = (
+        data: {
+            type: string, // 樣式寫在 /plugin/tools.scss
+            title: string, 
+            message: string
+        }
+    ) => {
+
+    if (document.querySelector('.esNotification')) {return false}
+
+    const div = document.createElement('div') as HTMLElement
     div.innerHTML = '<div class="inner"><h2>' + data.title + '</h2><p>' + data.message + '</p></div>'
     div.classList.add('esNotification')
     div.classList.add(data.type)
     document.body.appendChild(div)
 
     setTimeout(() => {
-        const noti = document.querySelector('.esNotification')
+        const noti = document.querySelector('.esNotification') as HTMLElement
         noti.classList.add('out')
         setTimeout(() => {noti.remove()}, 200)
     }, 2000)
 }
 
-export const esShareTo = ( data:{ url: String, socialMedia: String }) => {
+export const esShareTo = ( 
+        data:{
+             url: string, 
+             socialMedia: string 
+        }
+    ) => {
     let shareUrl
     switch (data.socialMedia) {
         case 'Facebook' :

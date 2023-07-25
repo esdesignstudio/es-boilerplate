@@ -39,14 +39,14 @@ export default defineNuxtConfig({
     },
 
     css: [
-        '@/assets/styles/_main.scss', // global css
+        '@/assets/styles/main.scss', // global css
     ],
 
     vite: {
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: '@import "@/assets/styles/mixins/_mixin.scss";',
+                    additionalData: '@import "@/assets/styles/mixins/mixin.scss";',
                 },
             },
         },
