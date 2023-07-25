@@ -2,14 +2,14 @@
     "search.exclude": {
         "wordpress/wp-content/plugins/": true,
         "wordpress/wp-include/": true,
-        "wordpress/wp-admin/": true
+        "wordpress/wp-admin/": true,
     },
     "editor.insertSpaces": true, // 強制輸入空白
     "editor.detectIndentation": false, // 關閉縮排偵測
     "editor.tabSize": 4, // 編輯器字體大小
     "editor.formatOnSave": false,
-    // ----- eslint, stylelint 設定 -----
-    "eslint.alwaysShowStatus": true,
+    
+    // > ----- eslint, stylelint 設定 -----
     "eslint.options": {
         "extensions": [".html", ".js", ".vue"]
     },
@@ -21,45 +21,32 @@
         "source.fixAll.eslint": true,
         "source.fixAll.stylelint": true
     },
-    "css.validate": false,
-    "less.validate": false,
-    "scss.validate": false,
-    "stylelint.snippet": ["css", "scss", "vue"],
-    "stylelint.validate": ["css", "scss", "vue"],
-    // ----- Todo tree 設定 -----
-    "todo-tree.highlights.defaultHighlight": {
-        "foreground": "white",
-        "type": "text"
-    },
-    "todo-tree.general.tags": ["TODO", "FIXME", "BUG", "API", "MOCK", "REF", "NOTICE"],
-    "todo-tree.highlights.customHighlight": {
-        "TODO": {
-            "background": "#f0be29"
+
+    // > ----- Better comments 設定 -----
+    "better-comments.tags": [
+        { // 重要提示
+          "tag": "!",
+          "color": "#ffffff",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "#d9444a",
+          "bold": true,
+          "italic": false
         },
-        "FIXME": {
-            "icon": "$(flame)",
-            "background": "#f765ab"
+        { // 標題
+          "tag": ">",
+          "color": "#AE47FF",
+          "strikethrough": false,
+          "backgroundColor": "transparent"
         },
-        "BUG": {
-            "icon": "$(bug)",
-            "background": "#ff0000"
+        { // 沒用卻要備份的程式碼
+          "tag": "//",
+          "color": "#474747",
+          "strikethrough": true,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
         },
-        "API": {
-            "icon": "$(cloud-download)",
-            "background": "#D94DFF"
-        },
-        "MOCK": {
-            "icon": "$(squirrel)",
-            "background": "#4cf21a"
-        },
-        "REF": {
-            "icon": "$(hubot)",
-            "background": "#00ddff"
-        },
-        "NOTICE": {
-            "background": "#ec9669"
-        }
-    },
-    "todo-tree.filtering.excludeGlobs": ["**/node_modules/*", "**/wp-content/plugins/*"],
-    "cSpell.words": ["blockstudio"]
+      ],
 }

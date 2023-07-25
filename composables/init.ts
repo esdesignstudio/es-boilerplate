@@ -1,5 +1,8 @@
 export const ESinit = (data:{ scroll: Function }) => {
-    // 載入動畫
+    
+    // > For landing animation
+    // - Every page should use `pageloaded.value = true` to trigger animation
+
     let isFirstLand = true
     const pageloaded = usePageLoaded()
     watch(pageloaded, (next) => {
@@ -17,7 +20,7 @@ export const ESinit = (data:{ scroll: Function }) => {
     })
 
 
-    // 換頁前
+    // Before page transition   
     const router = useRouter()
     const { $LCscroll } = useNuxtApp()
 
@@ -32,16 +35,16 @@ export const ESinit = (data:{ scroll: Function }) => {
             document.body.classList.add('is-loading')
         }
 
-        // lenis 滾動中換頁會回不到最上層，增加確保
+        // Make sure lenis scroll to top after page transition
         if (document.documentElement.classList.contains('lenis-scrolling')) {
             setTimeout(() => {
                 $LCscroll.scrollTo(0, { duration: 1 })
-            }, 400)
+            }, 400) // 400 depend on vue transition time
         }
         
     })
 
-    // 換頁後
+    // After page transition   
     const { hook } = useNuxtApp()
     const vueTransitionTime = 600 // leave 0.2 + enter 0.4 = 0.6
 
@@ -63,6 +66,8 @@ export const ESinit = (data:{ scroll: Function }) => {
     })
     
 }
+
+// Just for fun
 if(process.server) {
     console.log('\n');
     console.log('.                         .-.' );
