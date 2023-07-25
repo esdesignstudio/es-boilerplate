@@ -16,6 +16,7 @@
                 <p>An error occurred: {{ error }}</p>
             </template>
         </NuxtErrorBoundary>
+        
     </div>
 </template>
 <script setup>

@@ -2,7 +2,6 @@
     <div class="page-animation">
         <div class="container">
             <div class="page-animation__content">
-                <h1>唯有深入思考各個角度，才能真正創造出帥氣的作品<br>- <br>佐藤可士</h1>
                 <section>
                     <h2>
                         <ElementsSlideUpEach
@@ -60,15 +59,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <h3>EXAMPLE</h3>
                     <div class="page-animation__content-example">
-                        <ElementsMarquee
-                            :data="[
-                                '唯有深入思考各個角度，才能真正創造出帥氣的作品'
-                            ]"
-                            :type="'text'"
-                            :reverse="true"
-                        />
+                    <h3>EXAMPLE 1</h3>
                         <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
@@ -83,17 +75,16 @@
                                 `"
                             />
                         </div>
-                    </div>
-                    <div class="page-animation__content-example">
                         <ElementsMarquee
                             :data="[
-                                'https://source.unsplash.com/random/1024x768',
-                                'https://source.unsplash.com/random/1024x768?fruit',
+                                '唯有深入思考各個角度，才能真正創造出帥氣的作品'
                             ]"
-                            :type="'img'"
-                            :direction="'right'"
-                            :speed="0.5"
+                            :type="'text'"
+                            :reverse="true"
                         />
+                    </div>
+                    <div class="page-animation__content-example">
+                        <h3>EXAMPLE 2</h3>
                         <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
@@ -110,6 +101,15 @@
                                 `"
                             />
                         </div>
+                        <ElementsMarquee
+                            :data="[
+                                'https://images.unsplash.com/photo-1637140945341-f28ada987326?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRpZ2l0YWwlMjBhcnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+                                'https://images.unsplash.com/photo-1643272148406-d09ca2d79dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60',
+                            ]"
+                            :type="'img'"
+                            :direction="'right'"
+                            :speed="0.5"
+                        />
                     </div>
                 </section>
                 <section>
@@ -314,39 +314,7 @@
                     </div>
                     <h3>EXAMPLE</h3>
                     <div class="page-animation__content-example">
-                        <div
-                            class="page-animation__pin"
-                            ref="pinWrapper"
-                            style="width: 100%; height: 100vh; margin-bottom: 100vh;"
-                        >
-                            <ElementsPinHorizontal
-                                :wrapper="pinWrapper"
-                                :offset="96"
-                            >
-                                <template #wrapper>
-                                    <div class="page-animation__pin-wrapper">
-                                        <figure>
-                                            <img src="https://source.unsplash.com/random/1024x768">
-                                        </figure>
-                                        <figure>
-                                            <img src="https://source.unsplash.com/random/1024x768?fruit">
-                                        </figure>
-                                        <figure>
-                                            <img src="https://source.unsplash.com/random/1024x768">
-                                        </figure>
-                                        <figure>
-                                            <img src="https://source.unsplash.com/random/1024x768?fruit">
-                                        </figure>
-                                        <figure>
-                                            <img src="https://source.unsplash.com/random/1024x768">
-                                        </figure>
-                                        <figure>
-                                            <img src="https://source.unsplash.com/random/1024x768?fruit">
-                                        </figure>
-                                    </div>
-                                </template>
-                            </ElementsPinHorizontal>
-                        </div>
+
                         <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
@@ -386,6 +354,39 @@
                                     </div>
                                 `"
                             />
+                        </div>
+                        <div
+                            class="page-animation__pin"
+                            ref="pinWrapper"
+                            style="width: 100%; height: 100vh; margin-bottom: 100vh;"
+                        >
+                            <ElementsPinHorizontal
+                                :wrapper="pinWrapper"
+                                :offset="96"
+                            >
+                                <template #wrapper>
+                                    <div class="page-animation__pin-wrapper">
+                                        <figure>
+                                            <img src="https://images.unsplash.com/photo-1601315488950-3b5047998b38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://images.unsplash.com/photo-1633269540827-728aabbb7646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://images.unsplash.com/photo-1635255224530-c8cdbad2f1e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=800&q=60">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://images.unsplash.com/photo-1635352722201-658b98c5b501?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://images.unsplash.com/photo-1601315488950-3b5047998b38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60">
+                                        </figure>
+                                        <figure>
+                                            <img src="https://images.unsplash.com/photo-1633269540827-728aabbb7646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60">
+                                        </figure>
+                                    </div>
+                                </template>
+                            </ElementsPinHorizontal>
                         </div>
                     </div>
                 </section>
@@ -478,16 +479,7 @@
     </div>
 </template>
 <script setup>
-    // const { data: pageData } = await useAsyncData(
-    //     'get_page_custom-about',
-    //     () => $fetch( useRuntimeConfig().apiUrl + '/get_page_custom', {
-    //         method: 'POST',
-    //         body: {
-    //             id: 1899,
-    //             // locale: locale.value 多國語言要自帶
-    //         }
-    //     })
-    // )
+
 
     const pageloaded = usePageLoaded()
     pageloaded.value = true
@@ -510,6 +502,10 @@
     $class-name: page-animation;
     .#{$class-name} {
         overflow: hidden;
+
+        .elements-code {
+            font-size: 13px;
+        }
         
         &__content {
             display: flex;
@@ -529,22 +525,21 @@
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 12.8rem 0;
-                
-                border-bottom: 2px solid map-get($colors, black-1);
+            
                 
 
                 &:nth-child(2) {
                     border-top: 2px solid map-get($colors, black-1);
                 }
 
-                > h2 {
+                h2 {
                     @include typo('display', 1);
 
                     margin-bottom: 4.8rem;
                 }
 
-                > h3 {
-                    @include typo('display', 2);
+                h3 {
+                    @include typo('head', 2);
                     margin-bottom: 2.4rem;
                 }
             }
@@ -564,6 +559,7 @@
 
                 > table {
                     @include size(100%, auto);
+                    @include typo('body', 16);
 
                     display: flex;
                     flex-direction: column;
@@ -578,7 +574,6 @@
                             border-bottom: 1px solid map-get($colors, black-1);
 
                             > th {
-                                @include typo('head', 3);
     
                                 flex: 1;
                                 text-align: left;
@@ -604,7 +599,6 @@
                             border-bottom: 1px solid rgba(map-get($colors, black-1), .2);
 
                             > td {
-                                @include typo('head', 3);
                                 
                                 flex: 1;
                                 padding-right: 2.4rem;
@@ -630,7 +624,6 @@
 
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 gap: 3.2rem;
 
                 &:not(:last-child) {
@@ -653,8 +646,6 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            border: 1px solid map-get($colors, black-1);
-            border-radius: 1.6rem;
 
             &::after {
                 @include typo('head', 2);
@@ -670,7 +661,7 @@
                 gap: 2.4rem;
 
                 > figure {
-                    @include size(32rem, auto);
+                    @include size(80vw, auto);
                     @include aspect(0.75);
     
                     position: relative;

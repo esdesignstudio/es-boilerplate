@@ -127,8 +127,8 @@
                 align-items: center;
 
                 > figure {
-                    @include size(30vw, auto);
-                    @include aspect(0.5);
+                    @include size(55vw, auto);
+                    @include aspect(0.7);
 
                     position: relative;
                     display: flex;
@@ -145,7 +145,8 @@
                 }
 
                 > p {
-                    @include typo('display', 1);
+                    font-size: 15vw;
+                    font-weight: bolder;
     
                     flex: 0 0 auto;
                 }

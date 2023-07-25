@@ -21,22 +21,6 @@
     const pageloaded = usePageLoaded()
     pageloaded.value = true
 
-    // const { $LCscroll } = useNuxtApp()
-    // const scrollEvent = ref()
-
-    // onMounted(() => {
-        
-    //     console.log('LCscroll', $LCscroll)
-    //     scrollEvent.value = window.addEventListener("scrollEvent", (e) => {
-    //         console.log(e.currentTarget)
-    //     });
-
-    // })
-
-    // onUnmounted(() => {
-    //     window.removeEventListener("scrollEvent", scrollEvent.value);
-    // })
-
     onMounted(() => {
         console.log(window.navigator)
     })
@@ -44,12 +28,12 @@
 
     const route = useRoute()
     useHead({
-        titleTemplate: useRuntimeConfig().public.siteName, // 首頁通常用 Slogan 覆蓋模板
+        titleTemplate: useRuntimeConfig().public.siteName, // Home page usually use slogan or custom site name 
         meta: useMetaReturn({
             title: useRuntimeConfig().public.siteName,
             description: '要接 API',
             image: '要接 API',
-            url: useRuntimeConfig().public.siteUrl + route.path 
+            url: useRuntimeConfig().public.siteUrl + route.path
         })
     })
 </script>

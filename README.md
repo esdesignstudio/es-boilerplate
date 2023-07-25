@@ -1,7 +1,8 @@
 # 🍳 ES Boilerplate  🍳
 
-ES Nuxt3，專門使用在客製化專案。
-如有在使用上遇到困難或者有改進建議的地方歡迎到 [Issues](https://github.com/esdesignstudio/es-boilerplate/issues) 提交問題，或者來信 [hi@e-s.tw](mailto:hi@e-s.tw)。
+ES Nuxt3，Use for our projects。
+
+"If you encounter any difficulties while using our template or have suggestions for improvements, please don't hesitate to leave us a comment or send an email to [hi@e-s.tw](mailto:hi@e-s.tw).
 
 ## Environment
 
@@ -30,5 +31,5 @@ yarn dev
 - [Locomotive Grid System](https://github.com/locomotivemtl/locomotive-boilerplate/blob/master/docs/grid.md)
 
 ## License
-
+If you enjoy our boilerplate, we kindly ask you to keep the console.log reference to our GitHub source when using it. Currently, it is included in the init file.
 - [The MIT License.](https://opensource.org/license/mit/)
