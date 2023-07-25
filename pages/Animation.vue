@@ -389,6 +389,89 @@
                         </div>
                     </div>
                 </section>
+                <section>
+                    <h2>
+                        <ElementsSlideUpEach
+                            text="NUXT SWIPER"
+                        />
+                    </h2>
+                    <h3>PARAMS</h3>
+                    <div class="page-animation__content-params">
+                        <p>請參閱nuxt-swiper <nuxt-link to="https://github.com/cpreston321/nuxt-swiper" target="_blank">Github</nuxt-link></p>
+                    </div>
+                    <h3>EXAMPLE</h3>
+                    <div class="page-animation__content-example">
+                        <div style="width: 100%;">
+                            <Swiper
+                                :modules="[SwiperAutoplay, SwiperEffectCreative]"
+                                :slides-per-view="1"
+                                :loop="true"
+                                :effect="'creative'"
+                                :autoplay="{
+                                    delay: 8000,
+                                    disableOnInteraction: true,
+                                }"
+                                :creative-effect="{
+                                    prev: {
+                                        shadow: false,
+                                        translate: ['-20%', 0, -1],
+                                    },
+                                    next: {
+                                        translate: ['100%', 0, 0],
+                                    },
+                                }"
+                            >
+                                <SwiperSlide>
+                                    <figure>
+                                        <img src="https://source.unsplash.com/random/1024x768">
+                                    </figure>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <figure>
+                                        <img src="https://source.unsplash.com/random/1024x768?fruit">
+                                    </figure>
+                                </SwiperSlide>
+                            </Swiper>
+                        </div>
+                        <div class="page-animation__content-example-code">
+                            <ElementsCode
+                                language="html"
+                                :data="`
+                                    <Swiper
+                                        :modules=&quot;[SwiperAutoplay, SwiperEffectCreative]&quot;
+                                        :slides-per-view=&quot;1&quot;
+                                        :loop=&quot;true&quot;
+                                        :effect=&quot;'creative'&quot;
+                                        :autoplay=&quot;{
+                                            delay: 8000,
+                                            disableOnInteraction: true,
+                                        }&quot;
+                                        :creative-effect=&quot;{
+                                            prev: {
+                                                shadow: false,
+                                                translate: ['-20%', 0, -1],
+                                            },
+                                            next: {
+                                                translate: ['100%', 0, 0],
+                                            },
+                                        }&quot;
+                                    >
+                                        <SwiperSlide>
+                                            <figure>
+                                                <img src=&quot;https://source.unsplash.com/random/1024x768&quot;>
+                                            </figure>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <figure>
+                                                <img src=&quot;https://source.unsplash.com/random/1024x768?fruit&quot;>
+                                            </figure>
+                                        </SwiperSlide>
+                                    </Swiper>
+                                `"
+                            />
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
         <Footer />
@@ -469,6 +552,16 @@
             &-params {
                 @include size(100%, auto);
 
+                margin-bottom: 6.4rem;
+
+                > p {
+                    @include typo('head', 3);
+
+                    > a {
+                        color: map-get($colors, warning);
+                    }
+                }
+
                 > table {
                     @include size(100%, auto);
 
@@ -476,7 +569,6 @@
                     flex-direction: column;
                     align-items: flex-start;
                     gap: 1.6rem;
-                    margin-bottom: 6.4rem;
 
                     > thead {
                         @include size(100%, auto);
