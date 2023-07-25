@@ -1,3 +1,7 @@
+
+// > For project custom global css
+// > ------------------------------------------------------------------------
+
 body {
     @include typo('body', 16);
     background-color: map-get($colors, gray);

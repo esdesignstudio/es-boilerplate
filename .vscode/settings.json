@@ -21,6 +21,9 @@
         "source.fixAll.eslint": true,
         "source.fixAll.stylelint": true
     },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
 
     // > ----- Better comments 設定 -----
     "better-comments.tags": [
@@ -40,7 +43,7 @@
           "backgroundColor": "transparent"
         },
         { // 沒用卻要備份的程式碼
-          "tag": "//",
+          "tag": "-",
           "color": "#474747",
           "strikethrough": true,
           "underline": false,

@@ -1,7 +1,8 @@
 export const ESinit = (data:{ scroll: Function }) => {
     
     // > For landing animation
-    // - Every page should use `pageloaded.value = true` to trigger animation
+    // > Every page should use `pageloaded.value = true` to trigger animation
+    // > ------------------------------------------------------------------------
 
     let isFirstLand = true
     const pageloaded = usePageLoaded()
@@ -20,7 +21,9 @@ export const ESinit = (data:{ scroll: Function }) => {
     })
 
 
-    // Before page transition   
+    // > Before page transition   
+    // > ------------------------------------------------------------------------
+
     const router = useRouter()
     const { $LCscroll } = useNuxtApp()
 
@@ -36,15 +39,18 @@ export const ESinit = (data:{ scroll: Function }) => {
         }
 
         // Make sure lenis scroll to top after page transition
+        // 400 depend on vue transition time
         if (document.documentElement.classList.contains('lenis-scrolling')) {
             setTimeout(() => {
                 $LCscroll.scrollTo(0, { duration: 1 })
-            }, 400) // 400 depend on vue transition time
+            }, 400) 
         }
         
     })
 
-    // After page transition   
+    // > After page transition   
+    // > ------------------------------------------------------------------------
+
     const { hook } = useNuxtApp()
     const vueTransitionTime = 600 // leave 0.2 + enter 0.4 = 0.6
 
@@ -67,7 +73,9 @@ export const ESinit = (data:{ scroll: Function }) => {
     
 }
 
-// Just for fun
+// > Just for fun
+// > ------------------------------------------------------------------------
+
 if(process.server) {
     console.log('\n');
     console.log('.                         .-.' );

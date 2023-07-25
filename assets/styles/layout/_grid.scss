@@ -1,21 +1,23 @@
 
-// ==========================================================================
-// Tools / Grid Columns
-// ==========================================================================
-// Help: https://css-tricks.com/snippets/css/complete-guide-grid/
-//
-// Grid layout system by locomotive.
+// > Grid columns
+// > Help: https://css-tricks.com/snippets/css/complete-guide-grid/
+// > ------------------------------------------------------------------------
+// > Grid layout system by locomotive
+// > Modifyied by ES Design
+
+// > Example
+/* html
+    <div class="grid">
+        <div class="cols-1-3-mobile cols-2-8-tablet">
+            <p>Hello</p>
+        </div>
+    </div>
+*/
 
 $colsMax: map-get($grid-columns, desktop) + 1;
-
-
 @each $break, $breakpoint in $breakpoints {
     @include media-breakpoint-up($break) {
-
-        // 網格開始
         @for $startIndex from 1 through $colsMax {
-
-            // 網格結束
             @for $endIndex from 1 through $colsMax {
 
                 .col-#{$startIndex}-#{$endIndex}-#{$break} {
@@ -32,11 +34,8 @@ $colsMax: map-get($grid-columns, desktop) + 1;
 }
 
 
-// ==========================================================================
-// Grid helper
-// ==========================================================================
-// 
-//
+// > Grid helper
+// > ------------------------------------------------------------------------
 
  .grid {
     display: grid;
@@ -56,12 +55,8 @@ $colsMax: map-get($grid-columns, desktop) + 1;
         list-style: none;
     }
 
-    // // ==========================================================================
-    // // Cols
-    // // ==========================================================================
 
-    // // Responsive grid columns based on `--grid-columns`
-    
+    // > Cols
     @each $break, $breakpoint in $breakpoints {
         @for $cols from 1 through $colsMax {
             @include media-breakpoint-up($break) {
@@ -72,20 +67,13 @@ $colsMax: map-get($grid-columns, desktop) + 1;
         }
     }
 
-    // ==========================================================================
-    // Modifiers
-    // ==========================================================================
+    // > Modifiers
     &.-full-height {
         height: 100%;
     }
 
-    // ==========================================================================
-    // Aligns
-    // ==========================================================================
-
-    // ==========================================================================
-    // Items inside cells
-    //
+    // > Aligns
+    // > Items inside cells
     &.-align-top {
         align-items: start;
     }
@@ -112,64 +100,4 @@ $colsMax: map-get($grid-columns, desktop) + 1;
         align-items: stretch;
         justify-items: stretch;
     }
-
-    // ==========================================================================
-    // Cells
-    //
-    // &.-top-cells {
-    //     align-content: start;
-    // }
-    // &.-right-cells {
-    //     justify-content: end;
-    // }
-    // &.-bottom-cells {
-    //     align-content: end;
-    // }
-    // &.-left-cells {
-    //     justify-content: start;
-    // }
-    // &.-center-cells {
-    //     align-content: center;
-    //     justify-content: center;
-    // }
-    // &.-center-cells-x {
-    //     justify-content: center;
-    // }
-    // &.-center-cells-y {
-    //     align-content: center;
-    // }
-    // &.-stretch-cells {
-    //     align-content: stretch;
-    //     justify-content: stretch;
-    // }
-    // &.-space-around-cells {
-    //     align-content: space-around;
-    //     justify-content: space-around;
-    // }
-    // &.-space-around-cells-x {
-    //     justify-content: space-around;
-    // }
-    // &.-space-around-cells-y {
-    //     align-content: space-around;
-    // }
-    // &.-space-between-cells {
-    //     justify-content: space-between;
-    //     align-content: space-between;
-    // }
-    // &.-space-between-cells-x {
-    //     justify-content: space-between;
-    // }
-    // &.-space-between-cells-y {
-    //     align-content: space-between;
-    // }
-    // &.-space-evenly-cells {
-    //     justify-content: space-evenly;
-    //     align-content: space-evenly;
-    // }
-    // &.-space-evenly-cells-x {
-    //     justify-content: space-evenly;
-    // }
-    // &.-space-evenly-cells-y {
-    //     align-content: space-evenly;
-    // }
 }

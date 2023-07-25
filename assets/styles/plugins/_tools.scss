@@ -1,0 +1,71 @@
+
+// > Custom components
+// > ------------------------------------------------------------------------
+
+// > Notification
+// > Use for esNotification() function
+// > example
+/*
+    <div class="esNotification success">
+        <div class="inner">
+            <h2>Success</h2>
+            <p>Notification message</p>
+        </div>
+    </div>
+*/
+
+.esNotification{
+    @include typo('body', 16);
+    position: fixed;
+    z-index: 990;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 0 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+
+    .inner{
+        color: white;
+        animation: fadeInUp .6s;
+        padding: 1rem 2rem;
+        border-radius: 10rem;
+        display: flex;
+        align-items: center;
+        
+        h2 {
+            @include typo('body', 14);
+            margin: 0 1rem 0 0;
+            opacity: 0.5;
+            font-weight: bolder;
+        }
+    }
+    &.out{
+        animation: fadeOut .2s both;
+    }
+    &.success {
+        .inner {
+            background: map-get($colors, success);
+        }
+    }
+    &.alert {
+        .inner {
+            background: map-get($colors, alert);
+        }
+    }
+    &.normal {
+        .inner {
+            background: map-get($colors, normal);
+        }
+    }
+
+    @include media-breakpoint-down(medium) {
+        top: initial;
+        bottom: 0;
+        padding: 0 0 4rem 0;
+    }
+
+}

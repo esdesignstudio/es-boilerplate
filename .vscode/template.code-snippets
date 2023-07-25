@@ -1,6 +1,6 @@
 {
-    // css
-    // ------ rwd -----
+
+    // > ------ rwd -----
     "SCSS RWD mixin large": {
         "scope": "scss, vue",
         "prefix": "xl",
@@ -51,16 +51,8 @@
         ],
         "description": "rwd mobile"
     },
-    // ----- header height -----
-    "get header height": {
-        "scope": "scss, vue",
-        "prefix": "map:header-height",
-        "body": [
-            "map-get(\\$header-height, ${0:normal})"
-        ],
-        "description": "flex align center"
-    },
-    // ----- UI guide -----
+
+    // > ------ UI -----
     "typography mixin": {
         "scope": "scss, vue",
         "prefix": "typo",
@@ -93,7 +85,8 @@
         ],
         "description": "flex align center"
     },
-    // ----- mixins -----
+
+    // > ------ Mixin -----
     "SCSS size mixin": {
         "scope": "scss, vue",
         "prefix": "size",
@@ -123,7 +116,8 @@
         ],
         "description": "vue transition scss"
     },
-    // ----- css -----
+
+    // > ------ Css -----
     "flex center": {
         "scope": "scss, vue",
         "prefix": "flex-center",
@@ -142,7 +136,9 @@
         ],
         "description": "background cover mixin"
     },
-    // ----- html -----
+    
+
+    // > ------ Html -----
     "fakeImg": {
         "prefix": "fakeimg",
         "body": ["${1:https://source.unsplash.com/random/${2:1024}x${3:768}}"],
@@ -190,5 +186,6 @@
             "</style>",
         ],
         "description": "template"
-    }
+    },
+    
 }
