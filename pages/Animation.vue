@@ -358,11 +358,14 @@
                         <div
                             class="page-animation__pin"
                             ref="pinWrapper"
-                            style="width: 100%; height: 100vh; margin-bottom: 100vh;"
+                            style="width: 100%; height: 600vh;"
                         >
                             <ElementsPinHorizontal
                                 :wrapper="pinWrapper"
                                 :offset="96"
+                                :markers="true"
+                                :start="'top top'"
+                                :end="'bottom bottom'"
                             >
                                 <template #wrapper>
                                     <div class="page-animation__pin-wrapper">
@@ -381,7 +384,7 @@
                                         <figure>
                                             <img src="https://images.unsplash.com/photo-1601315488950-3b5047998b38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60">
                                         </figure>
-                                        <figure>
+                                        <figure data-scroll>
                                             <img src="https://images.unsplash.com/photo-1633269540827-728aabbb7646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60">
                                         </figure>
                                     </div>
@@ -642,10 +645,6 @@
         }
 
         &__pin {
-            position: relative;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
 
             &::after {
                 @include typo('head', 2);
@@ -659,21 +658,15 @@
             &-wrapper {
                 display: flex;
                 gap: 2.4rem;
+                white-space: nowrap;
 
                 > figure {
-                    @include size(80vw, auto);
-                    @include aspect(0.75);
-    
-                    position: relative;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    overflow: hidden;
+                    flex: 0 0 auto;
+                    @include size(80vw, 100vh);
     
                     > img {
                         @include size(100%);
-    
-                        position: absolute;
+                        
                         object-fit: cover;
                     }
                 }

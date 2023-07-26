@@ -65,6 +65,12 @@
             }, 601);
         })
     })
+
+    onUnmounted(() => {
+        scroller.value.forEach((item) => {
+            item.kill()
+        })
+    })
 </script>
 <style lang="scss">
     $class-name: elements-pin-horizontal;
