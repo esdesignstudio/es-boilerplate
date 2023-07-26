@@ -206,14 +206,6 @@
                     </div>
                     <h3>EXAMPLE</h3>
                     <div class="page-animation__content-example">
-                        <ElementsNumberCounter
-                            :from="0"
-                            :to="100"
-                            :decimals="0.1"
-                            :duration="3"
-                            :start="'top 80%'"
-                            :end="'bottom 20%'"
-                        />
                         <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
@@ -229,12 +221,16 @@
                                 `"
                             />
                         </div>
+                        <ElementsNumberCounter
+                            :from="0"
+                            :to="100"
+                            :decimals="0.1"
+                            :duration="3"
+                            :start="'top 80%'"
+                            :end="'bottom 20%'"
+                        />
                     </div>
                     <div class="page-animation__content-example">
-                        <ElementsNumberCounter
-                            :enter="true"
-                            :back="true"
-                        />
                         <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
@@ -246,6 +242,10 @@
                                 `"
                             />
                         </div>
+                        <ElementsNumberCounter
+                            :enter="true"
+                            :back="true"
+                        />
                     </div>
                 </section>
                 <section>
@@ -284,7 +284,7 @@
                                 <tr>
                                     <td>start</td>
                                     <td>String</td>
-                                    <td>'bottom bottom'</td>
+                                    <td>'top top'</td>
                                     <td>固定滾動元素開始位置<br><span>第一個參數為元素開始位置，第二個參數為視窗開始位置</span></td>
                                     <td>top 100%, bottom-=80 0%, center+=50 50%...</td>
                                 </tr>
@@ -322,7 +322,7 @@
                                     <div
                                         class=&quot;page-animation__pin&quot;
                                         ref=&quot;pinWrapper&quot;
-                                        style=&quot;width: 100%; height: 100vh; margin-bottom: 100vh;&quot;
+                                        style=&quot;width: 100%; height: 600vh;;&quot;
                                     >
                                         <ElementsPinHorizontal
                                             :wrapper=&quot;pinWrapper&quot;
@@ -405,38 +405,6 @@
                     </div>
                     <h3>EXAMPLE</h3>
                     <div class="page-animation__content-example">
-                        <div style="width: 100%;">
-                            <Swiper
-                                :modules="[SwiperAutoplay, SwiperEffectCreative]"
-                                :slides-per-view="1"
-                                :loop="true"
-                                :effect="'creative'"
-                                :autoplay="{
-                                    delay: 8000,
-                                    disableOnInteraction: true,
-                                }"
-                                :creative-effect="{
-                                    prev: {
-                                        shadow: false,
-                                        translate: ['-20%', 0, -1],
-                                    },
-                                    next: {
-                                        translate: ['100%', 0, 0],
-                                    },
-                                }"
-                            >
-                                <SwiperSlide>
-                                    <figure>
-                                        <img src="https://source.unsplash.com/random/1024x768">
-                                    </figure>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <figure>
-                                        <img src="https://source.unsplash.com/random/1024x768?fruit">
-                                    </figure>
-                                </SwiperSlide>
-                            </Swiper>
-                        </div>
                         <div class="page-animation__content-example-code">
                             <ElementsCode
                                 language="html"
@@ -474,6 +442,133 @@
                                 `"
                             />
                         </div>
+                        <div style="width: 100%;">
+                            <Swiper
+                                :modules="[SwiperAutoplay, SwiperEffectCreative]"
+                                :slides-per-view="1"
+                                :loop="true"
+                                :effect="'creative'"
+                                :autoplay="{
+                                    delay: 8000,
+                                    disableOnInteraction: true,
+                                }"
+                                :creative-effect="{
+                                    prev: {
+                                        shadow: false,
+                                        translate: ['-20%', 0, -1],
+                                    },
+                                    next: {
+                                        translate: ['100%', 0, 0],
+                                    },
+                                }"
+                            >
+                                <SwiperSlide>
+                                    <figure>
+                                        <img src="https://source.unsplash.com/random/1024x768">
+                                    </figure>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <figure>
+                                        <img src="https://source.unsplash.com/random/1024x768?fruit">
+                                    </figure>
+                                </SwiperSlide>
+                            </Swiper>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>
+                        <ElementsSlideUpEach
+                            text="Locomotive Scroll event-progress"
+                        />
+                    </h2>
+                    <h3>PARAMS</h3>
+                    <div class="page-animation__content-params">
+                        <p>請參閱Locomotive Scroll <nuxt-link to="https://scroll.locomotive.ca/docs/#/attributes?id=data-scroll-event-progress" target="_blank">官方文件</nuxt-link></p>
+                    </div>
+                    <h3>EXAMPLE</h3>
+                    <div class="page-animation__content-example">
+                        <div class="page-animation__content-example-code">
+                            <ElementsCode
+                                language="html"
+                                :data="`
+                                    <div
+                                        data-scroll
+                                        data-scroll-event-progress=&quot;progressEvent&quot;
+                                        v-text=&quot;elementProgress&quot;
+                                    >
+                                    </div>
+                                `"
+                            />
+                            <ElementsCode
+                                language="javascript"
+                                :data="`
+                                    const elementProgress = ref(0)
+
+                                    window.addEventListener('progressEvent', (e) => {
+                                        const { progress } = e.detail
+                                        elementProgress.value = progress
+                                    })
+                                `"
+                            />
+                        </div>
+                        <div
+                            style="width: 10rem; height: 10rem;background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center;"
+                            data-scroll
+                            data-scroll-event-progress="progressEvent"
+                            v-text="`${elementProgress}%`"
+                        ></div>
+                    </div>
+                </section>
+                <section>
+                    <h2>
+                        <ElementsSlideUpEach
+                            text="Locomotive Scroll speed"
+                        />
+                    </h2>
+                    <h3>PARAMS</h3>
+                    <div class="page-animation__content-params">
+                        <p>請參閱Locomotive Scroll <nuxt-link to="https://scroll.locomotive.ca/docs/#/attributes?id=data-scroll-speed" target="_blank">官方文件</nuxt-link></p>
+                    </div>
+                    <h3>EXAMPLE</h3>
+                    <div class="page-animation__content-example">
+                        <div class="page-animation__content-example-code">
+                            <ElementsCode
+                                language="html"
+                                :data="`
+                                    <div
+                                        data-scroll
+                                        data-scroll-speed=&quot;-.1&quot;
+                                    ></div>
+                                `"
+                            />
+                        </div>
+                        <div style="display: flex; gap: 1.6rem; width: 100%; height: 100vh; justify-content: center; align-items: center;">
+                            <div
+                                style="width: 10rem; height: 10rem;background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center;"
+                                data-scroll
+                                data-scroll-speed="-.1"
+                                v-text="-.1"
+                            ></div>
+                            <div
+                                style="width: 10rem; height: 10rem;background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center;"
+                                data-scroll
+                                data-scroll-speed="0"
+                                v-text="0"
+                            ></div>
+                            <div
+                                style="width: 10rem; height: 10rem;background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center;"
+                                data-scroll
+                                data-scroll-speed=".5"
+                                v-text=".5"
+                            ></div>
+                            <div
+                                style="width: 10rem; height: 10rem;background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center;"
+                                data-scroll
+                                data-scroll-speed="-.2"
+                                v-text="-2"
+                            ></div>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -491,6 +586,20 @@
     const route = useRoute()
 
     const pinWrapper = ref(null)
+    const elementProgress = ref(0)
+
+    onMounted(() => {
+        nextTick(() => {
+            setTimeout(() => {
+                window.addEventListener('progressEvent', (e) => {
+                    const { progress } = e.detail
+                    // round to 0 decimal places
+                    elementProgress.value = Math.round(progress * 100)
+                })
+            }, 601);
+        })
+    })
+
     useHead({
         title: pageTitle,
         meta: useMetaReturn({
@@ -513,7 +622,7 @@
         &__content {
             display: flex;
             flex-direction: column;
-            padding-bottom: 12.8rem;
+            padding-bottom: 20rem;
             
             h1 {
                 @include typo('head', 1);
@@ -528,12 +637,6 @@
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 12.8rem 0;
-            
-                
-
-                &:nth-child(2) {
-                    border-top: 2px solid map-get($colors, black-1);
-                }
 
                 h2 {
                     @include typo('display', 1);
@@ -640,6 +743,7 @@
 
                     display: flex;
                     justify-content: flex-start;
+                    gap: 1.6rem;
                 }
             }
         }
