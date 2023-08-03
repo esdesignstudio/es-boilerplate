@@ -36,7 +36,7 @@
                                 validation-visibility="live"
                             />
                             <NuxtLink to="/forgotpass">
-                                {{ $t('FORM.forgot_pass') }}
+                                忘記密碼
                             </NuxtLink>
                         </div>
                     

@@ -85,15 +85,13 @@ export default defineNuxtConfig({
         // },
         defaultLocale: 'zh',
         locales: [
-            { code: 'zh', iso: 'zh-TW', file: 'zh/index.js' },
-            { code: 'en', iso: 'en-US', file: 'en/index.js' },
+            { code: 'zh', iso: 'zh-TW', files: ['zh/index.js'] },
+            { code: 'en', iso: 'en-US', files: ['en/index.js'] },
         ],
         lazy: true,
         langDir: 'lang/',
         
     },
-
-    
 
     runtimeConfig: {
         public: {

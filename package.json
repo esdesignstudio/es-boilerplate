@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^0.6.7",
-    "@nuxtjs/i18n": "^8.0.0-beta.13",
+    "@nuxtjs/i18n": "^8.0.0-rc.2",
     "@nuxtjs/style-resources": "^1.2.1",
     "dayjs-nuxt": "^1.1.2",
     "nuxt": "3.6.2",
