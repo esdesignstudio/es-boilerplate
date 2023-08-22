@@ -23,8 +23,8 @@ export const esNotification = (
 
 export const esShareTo = ( 
     data:{
-            url: string, 
-            socialMedia: string 
+        url: string, 
+        socialMedia: string 
     }
 ) => {
     if (navigator.share) {
@@ -45,7 +45,7 @@ export const esShareTo = (
             case 'Twitter' :
                 shareUrl = 'https://twitter.com/intent/tweet?url=' + data.url + '&amp;via=esdesign'
         }
-        
+
         window.open(
             shareUrl, 
             'shareWindow',

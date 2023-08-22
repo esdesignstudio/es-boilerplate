@@ -601,7 +601,7 @@
                                     <td>data.socialMedia</td>
                                     <td>String</td>
                                     <td>''</td>
-                                    <td>社群媒體</td>
+                                    <td>社群媒體(僅桌機版適用)</td>
                                     <td>Facebook, Line, Twitter</td>
                                 </tr>
                             </tbody>
@@ -615,7 +615,8 @@
                                 :data="`
                                     <button
                                         @click=&quot;esShareTo({
-                                            url: 'https://source.unsplash.com/random/1024x768'
+                                            url: 'https://source.unsplash.com/random/1024x768',
+                                            socialMedia: 'Facebook'
                                         })&quot;
                                     >
                                         share
@@ -626,7 +627,8 @@
                         <button
                             style="display: block; background-color: #000; padding: 2rem; color: #fff; width: 24rem; border-radius: .8rem;"
                             @click="esShareTo({
-                                url: 'https://source.unsplash.com/random/1024x768'
+                                url: 'https://source.unsplash.com/random/1024x768',
+                                socialMedia: 'Facebook'
                             })"
                         >
                             share
