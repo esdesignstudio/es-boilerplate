@@ -571,6 +571,68 @@
                         </div>
                     </div>
                 </section>
+                <section>
+                    <h2>
+                        <ElementsSlideUpEach
+                            text="ES Share"
+                        />
+                    </h2>
+                    <h3>PARAMS</h3>
+                    <div class="page-animation__content-params">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>props</th>
+                                    <th>type</th>
+                                    <th>default</th>
+                                    <th>description</th>
+                                    <th>available params</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data.url</td>
+                                    <td>String</td>
+                                    <td>''</td>
+                                    <td>分享連結</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>data.socialMedia</td>
+                                    <td>String</td>
+                                    <td>''</td>
+                                    <td>社群媒體</td>
+                                    <td>Facebook, Line, Twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>EXAMPLE</h3>
+                    <div class="page-animation__content-example">
+                        <div class="page-animation__content-example-code">
+                            <ElementsCode
+                                language="html"
+                                :data="`
+                                    <button
+                                        @click=&quot;esShareTo({
+                                            url: 'https://source.unsplash.com/random/1024x768'
+                                        })&quot;
+                                    >
+                                        share
+                                    </button>
+                                `"
+                            />
+                        </div>
+                        <button
+                            style="display: block; background-color: #000; padding: 2rem; color: #fff; width: 24rem; border-radius: .8rem;"
+                            @click="esShareTo({
+                                url: 'https://source.unsplash.com/random/1024x768'
+                            })"
+                        >
+                            share
+                        </button>
+                    </div>
+                </section>
             </div>
         </div>
         <Footer />

@@ -22,25 +22,34 @@ export const esNotification = (
 }
 
 export const esShareTo = ( 
-        data:{
-             url: string, 
-             socialMedia: string 
-        }
-    ) => {
-    let shareUrl
-    switch (data.socialMedia) {
-        case 'Facebook' :
-            shareUrl = 'https://facebook.com/sharer.php?u=' + data.url
-            break
-        case 'Line' :
-            shareUrl = 'https://social-plugins.line.me/lineit/share?url=' + data.url + '&amp;via=esdesign'
-            break
-        case 'Twitter' :
-            shareUrl = 'https://twitter.com/intent/tweet?url=' + data.url + '&amp;via=esdesign'
+    data:{
+            url: string, 
+            socialMedia: string 
     }
-    window.open(
-        shareUrl, 
-        'shareWindow',
-        'menubar=0,location=0,toolbar=0,status=0,scrollbars=1,width=800,height=600'
-    )
+) => {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            text: document.title,
+            url: data.url
+        })
+    } else {
+        let shareUrl
+        switch (data.socialMedia) {
+            case 'Facebook' :
+                shareUrl = 'https://facebook.com/sharer.php?u=' + data.url
+                break
+            case 'Line' :
+                shareUrl = 'https://social-plugins.line.me/lineit/share?url=' + data.url + '&amp;via=esdesign'
+                break
+            case 'Twitter' :
+                shareUrl = 'https://twitter.com/intent/tweet?url=' + data.url + '&amp;via=esdesign'
+        }
+        
+        window.open(
+            shareUrl, 
+            'shareWindow',
+            'menubar=0,location=0,toolbar=0,status=0,scrollbars=1,width=800,height=600'
+        )
+    }
 }
