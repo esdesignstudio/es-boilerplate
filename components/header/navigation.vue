@@ -32,10 +32,6 @@
             link: '/form',
         },
     ])
-const i18n = useI18n()
-if (process.client) {console.log(i18n)
-}
-
 </script>
 <style lang="scss">
 $class-name: navigation-main;

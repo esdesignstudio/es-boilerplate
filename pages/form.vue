@@ -35,9 +35,6 @@
                                 validation="required|length:6|matches:/[^a-zA-Z]/"
                                 validation-visibility="live"
                             />
-                            <NuxtLink to="/forgotpass">
-                                忘記密碼
-                            </NuxtLink>
                         </div>
                     
                         <FormKit
@@ -57,10 +54,9 @@
                 <div class="col-7-13-mobile">
                     <h2>客製化功能範例</h2>
                     
-                    {{ taglistData.selected }}
                     <FormKit
                         type="taglist"
-                        title="分類"
+                        title="Multiple Select"
                         cleartext="不限制"
                         v-model="taglistData.selected"
                         :options="taglistData.options"
@@ -68,11 +64,14 @@
 
                     <FormKit
                         type="dropdown"
-                        title="下拉選單"
+                        title="Radio Select"
                         cleartext="不限制"
                         v-model="dropdownSelected"
                         :options="taglistData.options"
                     />
+
+                    <p>已選擇：</p>
+                    {{ taglistData.selected }}
 
                 </div>
             </div>

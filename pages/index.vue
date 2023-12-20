@@ -21,12 +21,6 @@
     const pageloaded = usePageLoaded()
     pageloaded.value = true
 
-    onMounted(() => {
-        console.log(window.navigator)
-    })
-
-    console.log('env', process.env.NODE_ENV)
-
     const route = useRoute()
     useHead({
         titleTemplate: useRuntimeConfig().public.siteName, // Home page usually use slogan or custom site name 

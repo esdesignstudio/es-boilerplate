@@ -17,8 +17,8 @@ html {
 }
 
 ::selection {
-    color: map-get($colors, white);
-    background-color: map-get($colors, black);
+    color: map-get($colors, brand-1);
+    background-color: map-get($colors, black-1);
 }
 
 

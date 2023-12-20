@@ -16,7 +16,7 @@ $fk-padding-input: 1.4rem 2rem;
 $fk-padding-base: 2rem;
 
 $fk-max-width-input: 25em;
-$fk-box-size: 1.25em;
+$fk-box-size: 2em;
 
 .formkit-outer {
 	box-sizing: border-box;
@@ -58,13 +58,18 @@ $fk-box-size: 1.25em;
 	width: 100%;
 	padding: $fk-padding-input;
     border: 1px solid map-get($colors, gray-line);
+    transition: border-color .2s;
+
+    &:hover, &:focus {
+        border-color: map-get($colors, black-1);
+    }
 
 	&:focus {
 		outline: none;
 	}
 }
 .formkit-message {
-	padding: 1rem 0;
+    padding: .5rem 0 1rem;
     font-size: 1.4rem;
 	list-style-type: none;
     color: map-get($colors, warning);
@@ -81,6 +86,7 @@ $fk-box-size: 1.25em;
 				color: inherit;
 			}
 		}
+        
 	}
 }
 [data-type="select"]:not([data-multiple]) {
@@ -97,15 +103,19 @@ $fk-box-size: 1.25em;
 input {
 	&.formkit-input[type="radio"]:checked {
 		& ~ .formkit-decorator {
+            border-color: map-get($colors, black-1);
+            
 			&::before {
-				background: $fk-color-checked;
+				background: map-get($colors, black-1);
 			}
 		}
 	}
 	&.formkit-input[type="checkbox"]:checked {
 		& ~ .formkit-decorator {
+            border-color: map-get($colors, black-1);
+
 			&::before {
-				border-color: $fk-color-checked;
+				border-color: map-get($colors, black-1);
 			}
 		}
 	}
@@ -226,8 +236,12 @@ select {
 	width: auto;
 	justify-content: center;
 	position: relative;
-	transition: filter 0.25s;
 	border: 1px solid transparent;
+    transition: all .2s;
+
+    &:hover, &:focus {
+        opacity: 0.8;
+    }
 }
 [data-type="button"] .formkit-input:focus-visible,
     [data-type="submit"] .formkit-input:focus-visible,
@@ -287,8 +301,19 @@ select {
 		}
 	}
 }
+[data-type="checkbox"] .formkit-input, [data-type="radio"] .formkit-input {
+
+    &:hover, &:focus {
+        opacity: .5;
+
+        ~ .formkit-decorator {
+            border-color: map-get($colors, black-1);
+        }
+    }
+}
 [data-type="checkbox"] [data-disabled], [data-type="radio"] [data-disabled] {
 	opacity: 30%;
+    pointer-events: none;
 }
 [data-type="checkbox"] .formkit-label, [data-type="radio"] .formkit-label {
 	-webkit-user-select: none;
@@ -297,6 +322,8 @@ select {
 	user-select: none;
 	padding: 0;
 	margin: 0;
+    cursor: pointer;
+
 }
 [data-type="checkbox"] .formkit-wrapper, [data-type="radio"] .formkit-wrapper {
 	display: flex;
@@ -322,15 +349,17 @@ select {
 	flex: 0 0 $fk-box-size;
 	border: 1px solid $fk-border-color;
 	// box-shadow: var(--fk-border-box-shadow);
+    transition: border-color .2s;
 	margin: 0 0.5em 0 0;
 	position: relative;
+
 }
 :is([data-type="checkbox"] .formkit-input) ~ .formkit-decorator::before, :is([data-type="radio"] .formkit-input) ~ .formkit-decorator::before {
 	background: transparent;
 	content: "";
 	display: block;
 	width: 55%;
-	height: 20%;
+	height: 30%;
 	pointer-events: none;
 	border-bottom: 0.2em solid transparent;
 	border-left: 0.2em solid transparent;
@@ -338,7 +367,8 @@ select {
 	transform-origin: bottom left;
 	position: absolute;
 	bottom: 20%;
-	left: 40%;
+	left: 45%;
+    transition: border-color .2s;
 }
 :is([data-type="checkbox"] .formkit-input):checked ~ .formkit-decorator, :is([data-type="radio"] .formkit-input):checked ~ .formkit-decorator {
 	// box-shadow: var(--fk-border-box-shadow-decorator-checked);

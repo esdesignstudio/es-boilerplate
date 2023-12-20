@@ -26,6 +26,7 @@ const taglistInputSchema = [
         $el: 'div',
         if: '$isopen',
         attrs: {
+            'data-lenis-prevent': 'true', // 防止 lenis 滾動
             class: 'es-select-box',
         },
         children: [{

@@ -8,27 +8,34 @@ function addAsteriskPlugin (node) {
   node.on('created', () => {
     const schemaFn = node.props.definition.schema;
     node.props.definition.schema = (sectionsSchema = {}) => {
-      const isRequired = node.props.parsedRules.some(rule => rule.name === 'required');
     
-      if (isRequired) {
+      if (
+        node.props.parsedRules.some(rule => rule.name === 'required')
+      ) {
         if(isCheckboxAndRadioMultiple(node)) {
           sectionsSchema.legend = {
             children: ['$label', '*']
           }
         } else {
           if (node.props.type !== 'select') {
+                const icon = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 0H7V3.76803L10.2632 1.88403L11.2632 3.61608L8.00004 5.50006L11.2632 7.38403L10.2632 9.11608L7 7.23208V11H5V7.23213L1.7369 9.11608L0.736904 7.38403L4.00004 5.50006L0.736904 3.61608L1.7369 1.88403L5 3.76798V0Z" fill="black"/></svg>'
+                
+                
                 sectionsSchema.label = {
-                    children: ['$label', {
-                        $el: 'div',
-                        attrs: {
-                            class: 'required',
-                            'data-foo': 'bar'
-                        },
-                        children: ''
-                    }]
+                    attrs: {
+                        class: 'required'
+                    },
+                    children: [
+                        {
+                            $el: 'span',
+                            attrs: {
+                                innerHTML: icon,
+                            }
+                        }, 
+                        '$label' // 交換位置將這個換到 span 前面
+                    ]
                 }
           }
-        //   console.log('表單', node.parent.props.id)
         }
       }
       return schemaFn(sectionsSchema);

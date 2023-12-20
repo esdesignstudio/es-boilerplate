@@ -108,3 +108,24 @@
     }
     
 }
+
+// Requried ICON
+.formkit-wrapper {
+    label {
+        &.required {
+            gap: 5px;
+            display: flex;
+            align-items: center;
+
+            > span {
+                svg {
+                    margin-bottom: 2px;
+                    
+                    path {
+                        fill: map-get($colors, warning);
+                    }
+                }
+            }
+        }
+    }
+}
