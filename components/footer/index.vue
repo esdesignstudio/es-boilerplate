@@ -20,10 +20,8 @@
 <style lang="scss">
 $class-name: footer;
 .#{$class-name} {
+    margin-top: 10rem;
     padding: 3rem 0;
-    &__wrap {
-        
-    }
 
 }
 </style>

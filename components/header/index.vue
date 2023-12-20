@@ -41,7 +41,7 @@ $class-name: header-index;
     left: 0;
     width: 100%;
     z-index: 100;
-    height: 16rem;
+    height: 12rem;
     align-items: center;
     transition: height .3s;
     border-bottom: 1px solid rgba(0,0,0,.2);

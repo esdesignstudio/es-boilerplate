@@ -53,7 +53,6 @@
 <style lang="scss">
     $class-name: page-layout;
     .#{$class-name} {
-        min-height: 100vh;
 
         h1 {
             @include typo('display', 1);

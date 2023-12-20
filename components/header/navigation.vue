@@ -48,6 +48,7 @@ $class-name: navigation-main;
         align-items: center;
         position: relative;
         justify-content: center;
+        border-right: 1px solid rgba(0,0,0,.2);
         border-left: 1px solid rgba(0,0,0,.2);
 
         span {
