@@ -2,16 +2,16 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --https --ssl-cert ~/localhost.pem --ssl-key ~/localhost-key.pem",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^0.6.7",
+    "@nuxt/devtools": "^1.0.6",
     "@nuxtjs/i18n": "^8.0.0-rc.2",
     "@nuxtjs/style-resources": "^1.2.1",
     "dayjs-nuxt": "^1.1.2",
-    "nuxt": "3.6.2",
+    "nuxt": "^3.8.2",
     "nuxt-icons": "^3.1.0",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",

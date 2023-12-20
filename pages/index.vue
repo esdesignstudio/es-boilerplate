@@ -25,6 +25,7 @@
         console.log(window.navigator)
     })
 
+    console.log('env', process.env.NODE_ENV)
 
     const route = useRoute()
     useHead({

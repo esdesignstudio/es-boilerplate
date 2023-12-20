@@ -71,6 +71,7 @@ export default defineNuxtConfig({
     },
 
     modules: [
+        '@nuxt/devtools',
         '@nuxtjs/i18n',
         '@formkit/nuxt',
         'nuxt-icons',
@@ -110,7 +111,7 @@ export default defineNuxtConfig({
         // modules: ['navigation', 'pagination'], // all modules are imported by default
     },
 
-    // devtools: {
-    //     enabled: process.env.ENV === 'dev',
-    // }
+    devtools: {
+        enabled: process.env.ENV === 'dev',
+    },
 })

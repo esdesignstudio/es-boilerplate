@@ -8,7 +8,7 @@ export default defineNuxtPlugin(() => {
                     wrapper: window,
                     content: document.documentElement,
                     lerp: 0.1,
-                    duration: 1.2,
+                    duration: 0.5,
                     orientation: 'vertical',
                     gestureOrientation: 'vertical',
                     smoothWheel: true,
