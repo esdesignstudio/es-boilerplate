@@ -1,5 +1,8 @@
 <template>
-    <div class="dev">
+    <div 
+        class="dev"
+        v-if="config.env !== 'uat'"
+    >
         <div 
             class="dev__wrap container"
             :class="{'-active': devSwitch}"
@@ -20,14 +23,17 @@
 </template>
 <script setup>
     const devSwitch = ref(false)
+    const config = useRuntimeConfig().public
     onMounted(() => {
         // 快速鍵開啟
-        console.log("%cShift + Option + C Toggle DevColmns", "border-left:10px solid #ffe800;border-color:#ffe800;background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;");
-        window.addEventListener('keydown', (e) => {
-            if (e.shiftKey && e.altKey && e.code === 'KeyC') {
-                devSwitch.value = !devSwitch.value
-            }
-        })
+        if(config.env !== 'uat') { 
+            console.log("%cShift + Option + C Toggle DevColmns", "border-left:10px solid #ffe800;border-color:#ffe800;background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;");
+            window.addEventListener('keydown', (e) => {
+                if (e.shiftKey && e.altKey && e.code === 'KeyC') {
+                    devSwitch.value = !devSwitch.value
+                }
+            })
+        }
     
     })
 </script>
