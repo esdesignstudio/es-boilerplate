@@ -110,7 +110,17 @@
     })
     const dropdownSelected = ref()
 
-    const submitHandler = (data) => {
+    const fakeFetch = {
+        post: () => new Promise(r => setTimeout(r, 2000))
+    }
+
+    const submitHandler = async (data) => {
+        const res = await fakeFetch.post()
+        esNotification({
+            type: 'success',
+            title: '表單送出',
+            message: '表單已送出',
+        })
         console.log('submitHandler', data)
     }
 

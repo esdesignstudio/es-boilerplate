@@ -15,9 +15,8 @@
 */
 
 .esNotification{
-    @include typo('body', 16);
     position: fixed;
-    z-index: 990;
+    z-index: 1000;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -37,7 +36,7 @@
         align-items: center;
         
         h2 {
-            @include typo('body', 14);
+            font-size: 1.4rem;
             margin: 0 1rem 0 0;
             opacity: 0.5;
             font-weight: bolder;
