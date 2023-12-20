@@ -20,6 +20,16 @@
 </template>
 <script setup>
     const devSwitch = ref(false)
+    onMounted(() => {
+        // 快速鍵開啟
+        console.log("%cShift + Option + C Toggle DevColmns", "border-left:10px solid #ffe800;border-color:#ffe800;background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;");
+        window.addEventListener('keydown', (e) => {
+            if (e.shiftKey && e.altKey && e.code === 'KeyC') {
+                devSwitch.value = !devSwitch.value
+            }
+        })
+    
+    })
 </script>
 <style lang="scss">
     .dev {

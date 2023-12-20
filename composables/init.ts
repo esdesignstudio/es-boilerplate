@@ -77,15 +77,11 @@ export const ESinit = (data:{ scroll: Function }) => {
 // > ------------------------------------------------------------------------
 
 if(process.server) {
-    console.log('\n');
     console.log('.                         .-.' );
     console.log(' (_______________________()6 `--,' );
     console.log(' (   __________________   /""""' );
     console.log(' //\\                  //\\' );
-    console.log(' \x1b[0m \x1b[33m%s\x1b[0m', '● ES Boilerplate is !!Awesome!! v1.0.0 ●', );
-    console.log('\n' );
+    console.log(' \x1b[0m \x1b[33m%s\x1b[0m', '● ES Boilerplate is Awesome - v1.0.0 ●', );
 } else {
-    console.log("%c Made by ES Boilerplate https://github.com/esdesignstudio/es-boilerplate")
-    console.log("%c ★ Made by ES design ★ We are looking for awsome Front-End developer ↓", "font-weight:600;background:#ffe800;padding:5px 15px;border-radius:5px; color:#000000;font-size:14px;")
-    console.log("%c https://www.cakeresume.com/companies/es-design/jobs !! JOIN US !!! ", "background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;")
+    console.log("%c🥚 ES Boilerplate 🥚 https://github.com/esdesignstudio/es-boilerplate", "border-left:10px solid #ffe800;border-color:#ffe800;background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;")
 }
