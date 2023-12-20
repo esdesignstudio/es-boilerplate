@@ -41,8 +41,16 @@
                             type="checkbox"
                             label="記得我"
                             name="remember"
-                            :value="true"
+                            :value="false"
                         />
+
+                        <FormKit
+                            type="radio"
+                            name="email_pref"
+                            label="單選列表"
+                            :options="{ daily: 'Daily', weekly: 'Weekly', monthly: 'Monthly' }"
+                        />
+
                         <div class="member-login__form-button">
                             <FormKit
                                 type="submit"
@@ -61,7 +69,6 @@
                         v-model="taglistData.selected"
                         :options="taglistData.options"
                     />
-
                     <FormKit
                         type="dropdown"
                         title="Radio Select"
@@ -69,9 +76,6 @@
                         v-model="dropdownSelected"
                         :options="taglistData.options"
                     />
-
-                    <p>已選擇：</p>
-                    {{ taglistData.selected }}
 
                 </div>
             </div>
@@ -109,6 +113,7 @@
             ]
     })
     const dropdownSelected = ref()
+    const radioSelected = ref()
 
     const fakeFetch = {
         post: () => new Promise(r => setTimeout(r, 2000))

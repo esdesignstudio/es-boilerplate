@@ -179,8 +179,18 @@ input {
 	// max-width: var(--fk-max-width-input);
 }
 .formkit-fieldset {
+    margin: 2rem 0;
+
+    .formkit-legend {
+        margin-bottom: .5rem;
+    }
     
-	border: 1px solid $fk-border-color;
+    .formkit-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
 	&:focus-within {
 		border: $fk-border-focus;
 	}

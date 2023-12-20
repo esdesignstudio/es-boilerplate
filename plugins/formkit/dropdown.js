@@ -61,6 +61,7 @@ const addOpenDropDown = (node) => {
         const closeDropDown = (e) => {
             if (!currentDom.contains(e.target)) {
                 node.props.isopen = false;
+                currentDom.classList.remove('active')
             }
         }
         // 開關下拉選單
@@ -69,8 +70,10 @@ const addOpenDropDown = (node) => {
             currentDom = e.currentTarget // 找不到 formkit 怎麼帶入當前元素，只好操作 dom 解決
             
             if (node.props.isopen) {
+                currentDom.classList.add('active')
                 document.addEventListener('click', closeDropDown)
             } else {
+                currentDom.classList.remove('active')
                 document.removeEventListener('click', closeDropDown)
             }
         }
