@@ -16,8 +16,8 @@
         <div class="dev__switch">
             <span>Column 顯示</span>
             <i></i>
-            <button type="button" :class="{'-active': !devSwitch}" @click="devSwitch = false">關閉</button>
-            <button type="button" :class="{'-active': devSwitch}" @click="devSwitch = true">開啟</button>
+            <button type="button" :class="{'-active': !devSwitch}" @click="devSwitch = false">ON</button>
+            <button type="button" :class="{'-active': devSwitch}" @click="devSwitch = true">OFF</button>
         </div>
     </div>
 </template>
@@ -38,6 +38,7 @@
     })
 </script>
 <style lang="scss">
+$col-opacity: .1;
     .dev {
         &__wrap {
             @include size(100vw, 100vh);
@@ -50,15 +51,15 @@
             transform: translateX(-50%);
             pointer-events: none;
             display: none;
-            
+
             &.-active {
                 display: flex;
             }
         
             .grid > div {
                 @include size(100%, 100vh);
-                border-left: 1px solid rgba(0,0,0,.1);
-                border-right: 1px solid rgba(0,0,0,.1);
+                border-left: 1px solid rgba(0,0,0,$col-opacity);
+                border-right: 1px solid rgba(0,0,0,$col-opacity);
             }
         }
 

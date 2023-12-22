@@ -1,5 +1,4 @@
 
-export const useScrolled = () => useState<boolean>('isScrolled', () => false)
 export const usePageLoaded = () => useState<boolean>('isPageloaded', () => false)
 
 // export const useGlobal = () => useState<Object>('globalOption', () => {

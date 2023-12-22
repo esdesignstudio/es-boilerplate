@@ -14,20 +14,27 @@ $colors: (
     error:     #C42021,
 );
 
+
+
+::selection {
+    color: map-get($colors, gray);
+    background-color: map-get($colors, black-1);
+}
+
 // > Grid
 // > ------------------------------------------------------------------------
 
 $container-margin: (
     mobile:   2.4rem,
-    tablet:   4.8rem,
-    medium:   4.8rem,
-    desktop:  4.8rem,
+    tablet:   2.4rem,
+    medium:   2.4rem,
+    desktop:  2.4rem,
 );
 
 $gutter: (
     mobile:   1.6rem,
-    tablet:   2.4rem,
-    desktop:  2.4rem,
+    tablet:   1.6rem,
+    desktop:  1.6rem,
 );
 
 $grid-columns: (

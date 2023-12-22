@@ -3,8 +3,8 @@
         <div class="container">
             <div class="footer__wrap grid">
                 <div class="footer__logo col-1-4-mobile">
-                    <NuxtLink to="/">
-                        ES Design
+                    <NuxtLink to="" target="_blank">
+                        © 2024 ES Design
                     </NuxtLink>
                 </div>
                 <div class="footer__navigation col-4-13-mobile">
@@ -21,7 +21,7 @@
 $class-name: footer;
 .#{$class-name} {
     margin-top: 10rem;
-    padding: 3rem 0;
+    padding: 3rem 0 10rem;
 
 }
 </style>

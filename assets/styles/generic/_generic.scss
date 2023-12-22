@@ -16,11 +16,6 @@ html {
     }
 }
 
-::selection {
-    color: map-get($colors, brand-1);
-    background-color: map-get($colors, black-1);
-}
-
 
 // 矯正顯示 IE 10
 template,

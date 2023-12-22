@@ -1,16 +1,23 @@
 <template>
     <div class="page-index">
         <div class="container">
-            <div class="page-index__content">
+            <div class="page-index__title">
                 <h1>
                     <ElementsSlideUpEach
-                        text="The details are not the details. They make the design."
+                        text="ES BOILERPLATE"
                     />
-                    <b data-scroll>細節不單只是細節，它們成就了設計<br>我們追求那小小會心一驚的設計</b>
                 </h1>
-                {{ $t('welcome', { msg: '我是變數' }) }}
+                
             </div>
-
+            <div class="grid">
+                <div class="page-index__img col-1-9-mobile">
+                    <img src="https://images.unsplash.com/photo-1703165805602-54276ce0cd6b?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                </div>
+                <div class="page-index__text col-11-13-mobile">
+                    <p>The details are not the details. They make the design.</p>
+                    <img src="https://images.unsplash.com/photo-1702314876402-8f64d97030a2?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                </div>
+            </div>
         </div>
         <Footer />
     </div>
@@ -35,32 +42,17 @@
 <style lang="scss">
     $class-name: page-index;
     .#{$class-name} {
-        &__content {
-            height: 100vh;
-
-            &-box {
-                width: 10rem;
-                height: 50vh;
-                margin-bottom: 10rem;
-                background-color: #000;
-            }
+        &__title {
+            margin-bottom: 2rem;
             
             h1 {
                 @include typo('display', 1);
-
-                > b {
-                    @include typo('head', 2);
-
-                    display: block;
-                    margin: 6rem auto;
-                }
-
-                .text-slideup__item {
-                    line-height: 1.2;
-                    margin-bottom: -1.5vw;
-
-                }
+                font-size: 11.6vw;
+                margin-left: -0.3vw
             }
+        }
+        &__text {
+            padding-top: 10rem;
         }
     }
 </style>

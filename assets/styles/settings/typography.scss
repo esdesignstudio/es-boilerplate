@@ -26,7 +26,7 @@ $font-fallback-mono:    Menlo, Consolas, Monaco, Liberation Mono, Lucida Console
 // > Basic
 // > ------------------------------------------------------------------------
 
-$font-weight-bold:   700;
+$font-weight-bold:   900;
 $font-weight-medium: 500;
 $font-weight-normal: 400;
 $font-weight-light:  300;
@@ -82,7 +82,7 @@ $font-family-body:
 
         } @else if $type == 2 {
             font-size: 2.4rem;
-            line-height: 1.6;
+            line-height: 1.4;
             font-weight: $font-weight-bold;
             font-family: $font-family-head;
 
@@ -95,7 +95,7 @@ $font-family-body:
             @error '#{$type}:沒有這個type';
         }
     } @else if $lv == 'body' {
-            line-height: 1.6;
+            line-height: 1.4;
 
         @if $type == 16 {
             font-size: 1.6rem;

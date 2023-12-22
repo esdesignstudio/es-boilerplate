@@ -1,5 +1,5 @@
 <template>
-    <div class="navigation-main grid">
+    <div class="navigation-main">
         <NuxtLink
             v-for="(item, index) in navs"
             :key="index"
@@ -8,6 +8,7 @@
         >
             <span>{{ item.name }}</span>
         </NuxtLink>
+
     </div>
 </template>
 <script setup>
@@ -30,57 +31,53 @@
         }, {
             name: 'Form',
             link: '/form',
-        },
+        }
     ])
 </script>
 <style lang="scss">
 $class-name: navigation-main;
 .#{$class-name} {
-    @include size(100%);
+    @include typo('head', 3);
 
-    gap: map-get($gutter, desktop);
-    grid-template-columns: repeat(8, 1fr);
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: 1.4rem;
+    transform: translateX(-50%);
+    position: absolute;
     
     a {
-        grid-column: span 2;
-        height: 100%;
-        display: flex;
-        align-items: center;
         position: relative;
-        justify-content: center;
-        border-right: 1px solid rgba(0,0,0,.2);
-        border-left: 1px solid rgba(0,0,0,.2);
-
-        span {
-            z-index: 1;
-            position: relative;
-        }
 
         &:before {
-            @include size(100%);
+            @include size(100%, 2px);
             content: '';
             left: 0;
-            top: 0;
+            bottom: 0;
             z-index: 0;
             transform-origin: bottom;
-            transform: scaleY(0);
+            transform: scaleX(0);
+            transform-origin: 0 0;
             position: absolute;
-            background-color: #000;
+            background-color: map-get($colors, gray);
             transition: transform .3s cubic-bezier(0.87, 0, 0.13, 1);
         }
 
 
         &:hover {
             &:before {
-                transform: scaleY(0.05);
+                transform-origin: 100% 0;
+                transform: scaleX(1);
             }
         }
 
         &.router-link-active {
-            color: map-get($colors, gray);
 
             &:before {
-                transform: scaleY(1);
+                transform-origin: 100% 0;
+                transform: scaleX(1);
             }
         }
     }
