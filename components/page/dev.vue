@@ -16,8 +16,8 @@
         <div class="dev__switch">
             <span>Column 顯示</span>
             <i></i>
-            <button type="button" :class="{'-active': !devSwitch}" @click="devSwitch = false">ON</button>
-            <button type="button" :class="{'-active': devSwitch}" @click="devSwitch = true">OFF</button>
+            <button type="button" :class="{'-active': !devSwitch}" @click="devSwitch = false">OFF</button>
+            <button type="button" :class="{'-active': devSwitch}" @click="devSwitch = true">ON</button>
         </div>
     </div>
 </template>
