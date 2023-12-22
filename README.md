@@ -1,5 +1,8 @@
 # 🍳 ES Boilerplate  🍳
 
+> Warning
+> ES Boilerplate is currently in beta, be prepared for breaking changes compared to previous versions.
+
 ES Nuxt3，Use for our projects。
 
 "If you encounter any difficulties while using our template or have suggestions for improvements, please don't hesitate to leave us a comment or send an email to [hi@e-s.tw](mailto:hi@e-s.tw).
