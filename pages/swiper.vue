@@ -1,29 +1,33 @@
 <template>
     <div class="page-swiper">
         <Swiper
-            :modules="[SwiperParallax]"
+            :modules="[SwiperParallax, SwiperAutoplay]"
             :centered-slides="true"
             :loop="true"
             :parallax="true"
             :grab-cursor="true"
+            :autoplay="{
+                delay: 8000,
+                disableOnInteraction: true
+            }"
         >
             <SwiperSlide
                 v-for="(item, index) in imgArray"
                 :key="index"
             >
                 <div class="page-swiper__image" >
-                    <div data-swiper-parallax="800" :style="`background-image: url('${item}')`"></div>
+                    <div data-swiper-parallax="800" data-swiper-duration="1200" :style="`background-image: url('${item}')`"></div>
                 </div>
                 <div class="page-swiper__text container">
                     <div class="grid">
                         <div class="col-1-13-mobile">
-                            <h2>AMAZING ES</h2>
+                            <h3>AMAZING ES</h3>
                         </div>
                         <div class="col-9-13-mobile">
                             <p>From strategy to deployment and maintenance, we're the ultimate digital one-stop shop. Over the past 5 years, ES has become a go-to for meaningful, innovative, results-driven digital experiences, web design and branding. Freshness guaranteed.</p>
                         </div>
                         <div class="col-1-7-mobile">
-                            <h2>{{index + 1}}</h2>
+                            <h3>{{index + 1}}</h3>
                         </div>
                     </div>
                 </div>
@@ -38,12 +42,9 @@
     pageloaded.value = true
 
     const imgArray = ref([
-        'https://images.unsplash.com/photo-1636837955417-2d8a4e49368f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1636306950045-4dbb10b7e0f4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1636837955417-2d8a4e49368f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1636837955417-2d8a4e49368f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1636306950045-4dbb10b7e0f4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1636837955417-2d8a4e49368f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1632059368252-be6d65abc4e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1658988958556-72342117610f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1682845737939-a12169ff13cf?q=80&w=1498&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ])
 </script>
 <style lang="scss">
@@ -63,13 +64,13 @@
             }
         }
         &__text {
-            
+            color: map-get($colors, white);
             position: absolute;
             left: 0;
             top: 2rem;
             z-index: 2;
 
-            h2 {
+            h3 {
                 @include typo('display', 1);
             }
         }
