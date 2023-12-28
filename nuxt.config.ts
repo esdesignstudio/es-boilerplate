@@ -30,7 +30,8 @@ export default defineNuxtConfig({
                 },
             ],
             noscript: [
-                { children: '😚' + process.env.APP_NAME + '：此網站必須啟用 ✪ Javascript ✪' }
+                { children: '<style>text{position:fixed;top:0;left:0;width:100vw;height:100vh;font-size:2rem;background-color:#000;color:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;text-align:center;padding:5rem}</style>' },
+                { children: '😓 ' + process.env.APP_NAME + '：Sorry your JavaScript is off or your browser does not support JavaScript 😓' }
             ], 
             script: [
                 // { src: 'https://static.line-scdn.net/liff/edge/2/sdk.js'}

@@ -30,9 +30,6 @@
             name: 'Animation',
             link: '/animation',
         }, {
-            name: 'Layout',
-            link: '/layout',
-        }, {
             name: 'Form',
             link: '/form',
         },
