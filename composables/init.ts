@@ -1,4 +1,6 @@
 export const ESinit = (data:{ scroll: Function }) => {
+
+    const { $LCscroll } = useNuxtApp()
     
     // > For landing animation
     // > Every page should use `pageloaded.value = true` to trigger animation
@@ -10,6 +12,12 @@ export const ESinit = (data:{ scroll: Function }) => {
         if (next && isFirstLand) {
             isFirstLand = false
             document.body.classList.add('is-loaded')
+
+            // Fix static nuxt using lenis-scroll can't get dom
+            if (document.querySelector('[data-ssr]')?.dataset.ssr === 'false') {
+                const newContainer = document.querySelector('main')
+                newContainer !== null ? $LCscroll.addScrollElements(newContainer) : null
+            }
 
             setTimeout(() => {
                 document.querySelector('.loading')?.remove()
@@ -25,7 +33,6 @@ export const ESinit = (data:{ scroll: Function }) => {
     // > ------------------------------------------------------------------------
 
     const router = useRouter()
-    const { $LCscroll } = useNuxtApp()
 
     router.beforeEach((to, from) => {
         console.log('★★ router beforeEach')
@@ -67,8 +74,7 @@ export const ESinit = (data:{ scroll: Function }) => {
                 }
             }, vueTransitionTime)
 
-        }
-        
+        } 
     })
     
 }

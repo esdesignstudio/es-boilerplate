@@ -79,7 +79,6 @@
     // 此版本的 Swiper 不足數時會有空白，至少要有畫面的兩倍數量 Dom
 
     const pageloaded = usePageLoaded()
-    pageloaded.value = true
 
     const imgArray = ref([
         'https://images.unsplash.com/photo-1632059368252-be6d65abc4e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -89,6 +88,14 @@
         'https://images.unsplash.com/photo-1658988958556-72342117610f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         'https://images.unsplash.com/photo-1682845737939-a12169ff13cf?q=80&w=1498&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ])
+
+    // 模擬讀取時間
+    onMounted(() => {
+        setTimeout(() => {
+            pageloaded.value = true
+        }, 300)
+    })
+    
 </script>
 <style lang="scss">
     $class-name: page-swiper;

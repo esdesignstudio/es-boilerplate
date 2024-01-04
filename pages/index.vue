@@ -26,9 +26,15 @@
 
 
     const pageloaded = usePageLoaded()
-    pageloaded.value = true
-
     const route = useRoute()
+
+    // 模擬讀取時間
+    onMounted(() => {
+        setTimeout(() => {
+            pageloaded.value = true
+        }, 300)
+    })
+
     useHead({
         titleTemplate: useRuntimeConfig().public.siteName, // Home page usually use slogan or custom site name 
         meta: useMetaReturn({

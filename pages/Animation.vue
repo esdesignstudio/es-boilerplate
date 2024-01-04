@@ -561,7 +561,6 @@
 
 
     const pageloaded = usePageLoaded()
-    pageloaded.value = true
     
     const pageTitle = ref('Animation')
     const route = useRoute()
@@ -569,9 +568,13 @@
     const pinWrapper = ref(null)
     const elementProgress = ref(0)
 
+
+
     onMounted(() => {
         nextTick(() => {
             setTimeout(() => {
+
+                pageloaded.value = true
                 window.addEventListener('progressEvent', (e) => {
                     const { progress } = e.detail
                     // round to 0 decimal places

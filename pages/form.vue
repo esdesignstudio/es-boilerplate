@@ -85,8 +85,13 @@
 </template>
 <script setup>
 
+    // 模擬讀取時間
     const pageloaded = usePageLoaded()
-    pageloaded.value = true
+    onMounted(() => {
+        setTimeout(() => {
+            pageloaded.value = true
+        }, 300)
+    })
 
     const taglistData = reactive({
             selected: [],
