@@ -734,7 +734,7 @@
             &::after {
                 @include typo('head', 2);
 
-                content: '#Pined Frame';
+                // content: '#Pined Frame';
                 position: absolute;
                 top: 2.4rem;
                 left: 2.4rem;

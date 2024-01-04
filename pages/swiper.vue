@@ -12,7 +12,7 @@
                 :loop="true"
                 :parallax="true"
                 :grab-cursor="true"
-                :speed="2000"
+                :speed="1500"
                 :autoplay="{
                     delay: 2000,
                     disableOnInteraction: true
@@ -42,7 +42,7 @@
             </Swiper>
 
 
-            <h2 class="page-swiper__title">
+            <h2 class="page-swiper__title" style="margin-top: 20vh">
                 <ElementsSlideUpEach
                     text="DEFAULT"
                 />
@@ -100,7 +100,7 @@
 
         &__image {
             width: 100%;
-            height: 60vh;
+            height: 80vh;
             overflow: hidden;
             position: relative;
             z-index: 1;

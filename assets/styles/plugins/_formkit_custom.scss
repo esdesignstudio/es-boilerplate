@@ -116,7 +116,7 @@
     
 }
 
-// Requried ICON
+// > Requried ICON
 .formkit-wrapper {
     label {
         &.required {
@@ -133,6 +133,37 @@
                     }
                 }
             }
+        }
+    }
+}
+
+// > Formkit Message
+.formkit-form {
+    > .formkit-messages {
+        margin: 2rem 0;
+        padding: 1rem 2rem;
+        display: inline-block;
+        position: relative;
+        background-color: map-get($colors, warning);
+
+        &:before {
+            content: '';
+            top: -1rem;
+            left: .6rem;
+            // left: calc(50% - 1rem);
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 0 .8rem 1.5rem .8rem;
+            border-color: transparent transparent map-get($colors, warning) transparent;
+            transform: rotate(0deg);
+        }
+
+        .formkit-message {
+            margin: 0;
+            padding: 0;
+            color: map-get($colors, white);
         }
     }
 }
