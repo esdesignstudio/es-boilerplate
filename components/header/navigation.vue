@@ -20,12 +20,18 @@
     })
     const navs = ref([
         {
+            name: 'Home',
+            link: '/',
+        },  
+        {
             name: 'Swiper',
             link: '/swiper',
-        },  {
-            name: 'Animation',
-            link: '/animation',
-        }, {
+        },  
+        // {
+        //     name: 'Animation',
+        //     link: '/animation',
+        // }, 
+        {
             name: 'Form',
             link: '/form',
         }

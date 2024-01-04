@@ -26,10 +26,12 @@
         {
             name: 'Home',
             link: '/',
-        }, {
-            name: 'Animation',
-            link: '/animation',
-        }, {
+        }, 
+        // {
+        //     name: 'Animation',
+        //     link: '/animation',
+        // }, 
+        {
             name: 'Form',
             link: '/form',
         },
