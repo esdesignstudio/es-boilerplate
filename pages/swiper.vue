@@ -126,6 +126,11 @@
             z-index: 2;
             padding: 0 2.4rem;
 
+            // > safari transition flicking issue
+            -webkit-transform:translate3d(0,0,0);
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+
             h3 {
                 @include typo('display', 2);
             }
@@ -133,6 +138,8 @@
 
         .swiper {
             margin-bottom: 5rem;
+            .swiper-slide {
+            }
         }
     }
 </style>

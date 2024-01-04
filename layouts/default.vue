@@ -16,9 +16,10 @@
 
 <style lang="scss">
     main {
+        will-change: opacity;
         opacity: 0;
         padding-top: 22rem;
-        transition: opacity .4s
+        transition: opacity .4s;
     }
     
     body.is-loaded {
