@@ -81,13 +81,13 @@
             },
         })
     }
-        
+    const { $LCscroll } = useNuxtApp()
     onMounted(() => {
         nextTick(() => {
             setTimeout(() => {
                 groupLength.value = marqueeGroupRef.value[0].clientWidth
                 init()
-                window.$scroll.lenisInstance.on("scroll", (e) => {
+                $LCscroll.lenisInstance.on("scroll", (e) => {
                     if (e.velocity > 1.2) {
                         timeline.timeScale(e.velocity / 2.6)
                         scrollDirectionDown.value = true

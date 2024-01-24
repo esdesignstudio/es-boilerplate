@@ -7,13 +7,16 @@
                         text="ES BOILERPLATE"
                     />
                 </h1>
-                
             </div>
             <div class="grid">
                 <div class="page-index__img col-1-9-mobile">
                     <img src="https://images.unsplash.com/photo-1703165805602-54276ce0cd6b?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                 </div>
-                <div class="page-index__text col-11-13-mobile">
+                <div
+                    data-scroll
+                    data-scroll-speed="-0.5"
+                    class="page-index__text col-11-13-mobile"
+                >
                     <p>The details are not the details. They make the design.</p>
                     <img src="https://images.unsplash.com/photo-1702314876402-8f64d97030a2?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                 </div>
@@ -27,7 +30,7 @@
 
     const pageloaded = usePageLoaded()
     const route = useRoute()
-
+    
     // 模擬讀取時間
     onMounted(() => {
         setTimeout(() => {
@@ -48,6 +51,8 @@
 <style lang="scss">
     $class-name: page-index;
     .#{$class-name} {
+        padding-top: 22rem;
+        
         &__title {
             margin-bottom: 2rem;
             

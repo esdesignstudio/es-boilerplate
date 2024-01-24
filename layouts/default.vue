@@ -18,7 +18,6 @@
     main {
         will-change: opacity;
         opacity: 0;
-        padding-top: 22rem;
         transition: opacity .4s;
     }
     

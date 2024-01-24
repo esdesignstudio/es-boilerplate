@@ -12,7 +12,6 @@
                 :loop="true"
                 :parallax="true"
                 :grab-cursor="true"
-                :speed="1500"
                 :autoplay="{
                     delay: 2000,
                     disableOnInteraction: true
@@ -40,15 +39,8 @@
                     </div>
                 </SwiperSlide>
             </Swiper>
-
-
-            <h2 class="page-swiper__title" style="margin-top: 20vh">
-                <ElementsSlideUpEach
-                    text="DEFAULT"
-                />
-            </h2>
             <Swiper
-                :modules="[SwiperAutoplay]"
+                :modules="[SwiperParallax, SwiperAutoplay]"
                 :centered-slides="true"
                 :slides-per-view="2"
                 :space-between="16"
@@ -64,8 +56,8 @@
                     v-for="(item, index) in imgArray"
                     :key="index"
                 >
-                    <div class="page-swiper__image" >
-                        <div data-swiper-parallax="800" data-swiper-duration="1200" :style="`background-image: url('${item}')`"></div>
+                    <div class="page-swiper__image -threeimg" >
+                        <div data-swiper-parallax="200" data-swiper-duration="1200" :style="`background-image: url('${item}')`"></div>
                     </div>
                 </SwiperSlide>
             </Swiper>
@@ -77,7 +69,6 @@
 </template>
 <script setup>
     // 此版本的 Swiper 不足數時會有空白，至少要有畫面的兩倍數量 Dom
-
     const pageloaded = usePageLoaded()
 
     const imgArray = ref([
@@ -101,8 +92,12 @@
     $class-name: page-swiper;
     .#{$class-name} {
 
+        padding-top: 22rem;
+        
         &__title {
             @include typo('display', 1);
+            margin-bottom: 2rem;
+            font-size: 11vw;
         }
 
         &__image {
@@ -116,6 +111,13 @@
                 @include size(100%);
                 background-size: cover;
                 background-position: center;
+            }
+
+            &.-threeimg {
+                > div {
+                    @include size(130%, 100%);
+                    margin-left: -15%;
+                }
             }
         }
         &__text {
@@ -137,9 +139,7 @@
         }
 
         .swiper {
-            margin-bottom: 5rem;
-            .swiper-slide {
-            }
+            margin-bottom: 1.6rem;
         }
     }
 </style>

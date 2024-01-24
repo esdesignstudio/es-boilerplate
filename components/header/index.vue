@@ -1,6 +1,6 @@
 <template>
-    <header class="header-index container">
-        <div class="header-index__wrap">
+    <header class="header-index">
+        <div class="header-index__wrap container">
             <NuxtLink 
                 to="/"
                 class="header-index__logo"
@@ -33,7 +33,6 @@ $class-name: header-index;
     z-index: 100;
     color: map-get($colors, gray);
     mix-blend-mode: difference;
-
 
     &__wrap {
         display: flex;

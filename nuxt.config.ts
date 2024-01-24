@@ -2,7 +2,7 @@ import { resolve, dirname } from 'node:path'
 import prismjs from 'babel-plugin-prismjs'
 
 export default defineNuxtConfig({
-    ssr: false,
+    ssr: true,
     app: {
         rootId: 'es-app',
         pageTransition: { name: 'page', mode: 'out-in' },
