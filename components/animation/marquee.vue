@@ -50,28 +50,34 @@
     let moveScroll = null;
     const { $LCscroll } = useNuxtApp()
     const init = () => {
+        
         groupLength.value = props.direction === 'left' || props.direction === 'right' ? marqueeGroupRef.value[0].clientWidth : marqueeGroupRef.value[0].clientHeight
         timeline = gsap.timeline()
         setTimeline()
+        
         moveScroll = function() {
             const velocity = $LCscroll.lenisInstance.velocity
-            if (velocity > 1.2) {
-                timeline.timeScale(velocity / 2.6)
-                scrollDirectionDown.value = true
-            } else if (velocity < -1.2) {
-                timeline.timeScale(velocity / 2.6).reverse()
-                scrollDirectionDown.value = false
-            } else {
-                if (props.reverse) {
-                    scrollDirectionDown.value ? timeline.timeScale(1) : timeline.timeScale(1).reverse()
+
+            if (timeline) {
+                if (velocity > 1.2) {
+                    timeline.timeScale(velocity / 2.6)
+                    scrollDirectionDown.value = true
+                } else if (velocity < -1.2) {
+                    timeline.timeScale(velocity / 2.6).reverse()
+                    scrollDirectionDown.value = false
                 } else {
-                    timeline.timeScale(1)
+                    if (props.reverse) {
+                        scrollDirectionDown.value ? timeline.timeScale(1) : timeline.timeScale(1).reverse()
+                    } else {
+                        timeline.timeScale(1)
+                    }
                 }
             }
             requestAnimationFrame(moveScroll)
         }
 
         moveScroll()
+        
     }
 
     const setTimeline = () => {
@@ -103,8 +109,7 @@
     })
 
     onUnmounted(() => {
-        timeline = null;
-        removeAnimationFrame(moveScroll)
+        cancelAnimationFrame(moveScroll)
     })
 </script>
 <style lang="scss">

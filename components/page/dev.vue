@@ -22,7 +22,7 @@
     </div>
 </template>
 <script setup>
-    const devSwitch = ref(false)
+    const devSwitch = ref(true)
     const config = useRuntimeConfig().public
     onMounted(() => {
         // 快速鍵開啟

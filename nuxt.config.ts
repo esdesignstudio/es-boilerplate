@@ -2,7 +2,7 @@ import { resolve, dirname } from 'node:path'
 import prismjs from 'babel-plugin-prismjs'
 
 export default defineNuxtConfig({
-    ssr: true,
+    ssr: false,
     app: {
         rootId: 'es-app',
         pageTransition: { name: 'page', mode: 'out-in' },
@@ -78,7 +78,6 @@ export default defineNuxtConfig({
         '@formkit/nuxt',
         'nuxt-icons',
         'dayjs-nuxt',
-        'nuxt-swiper'
     ],
 
     i18n: {
@@ -103,14 +102,6 @@ export default defineNuxtConfig({
             apiUrl: process.env.API_URL + '/wp-json/api',
             siteName: process.env.APP_NAME
         },
-    },
-
-    swiper: {
-        // Swiper options
-        //----------------------
-        // prefix: 'Swiper',
-        // styleLang: 'css',
-        // modules: ['Parallax', 'navigation', 'pagination'], // all modules are imported by default
     },
 
     devtools: {

@@ -1,28 +1,21 @@
 <template>
     <div class="page-swiper">
         <div class="container">
-            <h2 class="page-swiper__title">
-                <ElementsSlideUpEach
-                    text="PARALLAX"
-                />
-            </h2>
-            <Swiper
-                :modules="[SwiperParallax, SwiperAutoplay]"
-                :centered-slides="true"
-                :loop="true"
-                :parallax="true"
-                :grab-cursor="true"
-                :autoplay="{
-                    delay: 2000,
-                    disableOnInteraction: true
-                }"
+            
+            <swiper
+                :slidesPerView="3"
+                :space-between="50"
+                :centeredSlides="true"
+                :centeredSlidesBounds="true"
+                @swiper="onSwiper"
+                @slideChange="onSlideChange"
             >
-                <SwiperSlide
-                    v-for="(item, index) in imgArray"
+                <swiper-slide
+                    v-for="(img, index) in imgArray"
                     :key="index"
                 >
                     <div class="page-swiper__image" >
-                        <div data-swiper-parallax="800" data-swiper-duration="1200" :style="`background-image: url('${item}')`"></div>
+                        <div :style="`background-image: url('${img}')`"></div>
                     </div>
                     <div class="page-swiper__text">
                         <div class="grid">
@@ -37,44 +30,29 @@
                             </div>
                         </div>
                     </div>
-                </SwiperSlide>
-            </Swiper>
-            <Swiper
-                :modules="[SwiperParallax, SwiperAutoplay]"
-                :centered-slides="true"
-                :slides-per-view="2"
-                :space-between="16"
-                :loop="true"
-                :parallax="true"
-                :grab-cursor="true"
-                :autoplay="{
-                    delay: 2000,
-                    disableOnInteraction: true
-                }"
-            >
-                <SwiperSlide
-                    v-for="(item, index) in imgArray"
-                    :key="index"
-                >
-                    <div class="page-swiper__image -threeimg" >
-                        <div data-swiper-parallax="200" data-swiper-duration="1200" :style="`background-image: url('${item}')`"></div>
-                    </div>
-                </SwiperSlide>
-            </Swiper>
 
-
+                </swiper-slide>
+            </swiper>
         </div>
         <Footer />
     </div>
 </template>
 <script setup>
-    // 此版本的 Swiper 不足數時會有空白，至少要有畫面的兩倍數量 Dom
+
+    import { Swiper, SwiperSlide } from 'swiper/vue';
+    import 'swiper/css';
+
     const pageloaded = usePageLoaded()
 
+
+    const onSwiper = (swiper) => {
+        console.log(swiper);
+    };
+    const onSlideChange = () => {
+        console.log('slide change');
+    };
+
     const imgArray = ref([
-        'https://images.unsplash.com/photo-1632059368252-be6d65abc4e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1658988958556-72342117610f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1682845737939-a12169ff13cf?q=80&w=1498&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         'https://images.unsplash.com/photo-1632059368252-be6d65abc4e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         'https://images.unsplash.com/photo-1658988958556-72342117610f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         'https://images.unsplash.com/photo-1682845737939-a12169ff13cf?q=80&w=1498&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -139,6 +117,7 @@
         }
 
         .swiper {
+            overflow: clip;
             margin-bottom: 1.6rem;
         }
     }
