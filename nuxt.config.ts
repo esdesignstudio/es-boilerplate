@@ -107,4 +107,15 @@ export default defineNuxtConfig({
     devtools: {
         enabled: process.env.ENV === 'dev',
     },
+
+    hooks: {
+        'nitro:build:public-assets' : (nitro) => {
+            console.log('ES BUILD SUCCESS')
+            console.log('                         .-.')
+            console.log('(_______________________()6 `--,')
+            console.log('(   __________________   /"""`')
+            console.log('//\\                  //\\')
+            console.log('"" ""                 "" ""')
+        }
+    }
 })
