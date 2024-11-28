@@ -3,7 +3,7 @@
         <div class="container">
             
             <swiper
-                :slidesPerView="3"
+                :slidesPerView="1"
                 :space-between="50"
                 :centeredSlides="true"
                 :centeredSlidesBounds="true"

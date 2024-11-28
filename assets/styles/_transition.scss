@@ -2,76 +2,22 @@
     &-enter {
         &-from {
             opacity: 0;
+            transform: translate3d(0,50px,0);
         }
 
         &-active {
-            transition: opacity .4s;
+            transition: opacity .3s, transform .3s;
         }
     }
 
     &-leave {
         &-to {
             opacity: 0;
+            // transform: translate3d(0,-100px,0);
         }
 
         &-active {
-            transition: opacity .2s;
+            transition: opacity .2s, transform .2s;
         }
-    }
-}
-
-.list {
-    &-enter {
-        &-from {
-            opacity: 0;
-        }
-
-        &-active {
-            transition: opacity 0.5s;
-        }
-    }
-
-    // &-leave {
-    //     &-to {
-    //         opacity: 0;
-    //     }
-    //     &-active {
-    //         transition: opacity 0.5s;
-    //     }
-    // }
-}
-
-@keyframes scrollLine {
-    0% {
-		background-position-y: -80px;
-	}
-    
-	100% {
-		background-position-y: 0px;
-	}
-}
-
-@keyframes rotate {
-    100% {
-        transform: rotate(1turn);
-    }
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(1rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
     }
 }

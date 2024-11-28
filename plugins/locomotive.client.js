@@ -3,8 +3,6 @@ export default defineNuxtPlugin( nuxtApp => {
     
     const LCscroll = new LocomotiveScroll({
         lenisOptions: {
-            wrapper: window,
-            content: document.documentElement,
             lerp: 0.1,
             duration: 0.5,
             orientation: 'vertical',

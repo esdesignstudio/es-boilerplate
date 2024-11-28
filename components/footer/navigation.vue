@@ -11,13 +11,6 @@
                     {{ item.name }}
                 </NuxtLink>
             </li>
-            <li>
-                <NuxtLink
-                    :to="switchLocalePath('en')"
-                >
-                    語言切換
-                </NuxtLink>
-            </li>
         </ul>
     </div>
 </template>
@@ -26,15 +19,7 @@
         {
             name: 'Home',
             link: '/',
-        }, 
-        // {
-        //     name: 'Animation',
-        //     link: '/animation',
-        // }, 
-        {
-            name: 'Form',
-            link: '/form',
-        },
+        }
     ])
 </script>
 <style lang="scss">

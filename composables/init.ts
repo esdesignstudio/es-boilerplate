@@ -1,5 +1,7 @@
 export const ESinit = (data:{ scroll: Function }) => {
 
+    console.log("%c🥚 ES Boilerplate 🥚 https://github.com/esdesignstudio/es-boilerplate", "border-left:10px solid #ffe800;border-color:#ffe800;background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;")
+
     const { $LCscroll } = useNuxtApp()
     
     // > For landing animation
@@ -49,7 +51,7 @@ export const ESinit = (data:{ scroll: Function }) => {
         // 400 depend on vue transition time
         if (document.documentElement.classList.contains('lenis-scrolling')) {
             setTimeout(() => {
-                $LCscroll.scrollTo(0, { duration: 1 })
+                window.scrollY = 0
             }, 200) 
         }
         
@@ -59,9 +61,10 @@ export const ESinit = (data:{ scroll: Function }) => {
     // > ------------------------------------------------------------------------
 
     const { hook } = useNuxtApp()
-    const vueTransitionTime = 600 // leave 0.2 + enter 0.4 = 0.6
+    const vueTransitionTime = 400
 
     hook('page:finish', () => {
+        console.log('★★ isFirstLand', isFirstLand)
         if (!isFirstLand) {
 
             setTimeout(() => {
@@ -77,17 +80,4 @@ export const ESinit = (data:{ scroll: Function }) => {
         } 
     })
     
-}
-
-// > Just for fun
-// > ------------------------------------------------------------------------
-
-if(process.server) {
-    console.log('.                         .-.' );
-    console.log(' (_______________________()6 `--,' );
-    console.log(' (   __________________   /""""' );
-    console.log(' //\\                  //\\' );
-    console.log(' \x1b[0m \x1b[33m%s\x1b[0m', '● ES Boilerplate is Awesome - v1.0.0 ●', );
-} else {
-    console.log("%c🥚 ES Boilerplate 🥚 https://github.com/esdesignstudio/es-boilerplate", "border-left:10px solid #ffe800;border-color:#ffe800;background:#000000;padding:5px 15px;border-radius:5px; color:#ffffff;font-size:10px;")
 }

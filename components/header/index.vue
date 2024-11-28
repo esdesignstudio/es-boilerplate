@@ -11,11 +11,7 @@
                 <HeaderNavigation />
             </div>
             <div class="header-index__right">
-                <NuxtLink
-                    :to="switchLocalePath('en')"
-                >
-                    <span>中文</span>
-                </NuxtLink>
+                Made By ES
             </div>
         </div>
     </header>

@@ -48,7 +48,7 @@ $class-name: text-slideup;
         @for $i from 2 through 20 {
             &:nth-child(#{$i}) {
                 span {
-                    transition-delay: calc((#{$i} / 50 ) * 1s);
+                    transition-delay: calc((#{$i} / 20 ) * 1s);
                 }
             }
         }

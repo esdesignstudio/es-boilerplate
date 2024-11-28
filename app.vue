@@ -1,23 +1,16 @@
 <template>
-    <div>
-        <div class="loading">
-            <div class="container">
-                <div class="loading__spinner">
-                    FIRST LOADING
-                </div>
+    <div class="loading">
+        <div class="container">
+            <div class="loading__spinner">
+                FIRST LOADING
             </div>
         </div>
-        <NuxtLayout name="default">
-            <NuxtPage />
-        </NuxtLayout>
-        
-        <NuxtErrorBoundary @error="logSomeError">
-            <template #error="{ error }">
-                <p>An error occurred: {{ error }}</p>
-            </template>
-        </NuxtErrorBoundary>
-        
     </div>
+    <Header />
+    <main data-scroll-container>
+        <NuxtPage />
+    </main>
+    <PageDev/>
 </template>
 <script setup>
     onMounted(() => {

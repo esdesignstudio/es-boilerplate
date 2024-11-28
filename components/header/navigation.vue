@@ -3,7 +3,7 @@
         <NuxtLink
             v-for="(item, index) in navs"
             :key="index"
-            :to="localePath(item.link)"
+            :to="item.link"
             :title="item.title"
         >
             <span>{{ item.name }}</span>
@@ -30,10 +30,6 @@
         {
             name: 'Animation',
             link: '/animation',
-        }, 
-        {
-            name: 'Form',
-            link: '/form',
         }
     ])
 </script>
