@@ -1,35 +1,75 @@
-# 🍳 ES Boilerplate  🍳
+# Nuxt Minimal Starter
 
-> Warning
-> ES Boilerplate is currently in beta, be prepared for breaking changes compared to previous versions.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-ES Nuxt3，Use for our projects。
+## Setup
 
-"If you encounter any difficulties while using our template or have suggestions for improvements, please don't hesitate to leave us a comment or send an email to [hi@e-s.tw](mailto:hi@e-s.tw).
+Make sure to install dependencies:
 
-## Environment
+```bash
+# npm
+npm install
 
-- Node 18.14.0
-- yarn 1.22.19
+# pnpm
+pnpm install
 
-## Installation
-```
+# yarn
 yarn install
+
+# bun
+bun install
 ```
 
-## Development
-```
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+
+# yarn
 yarn dev
+
+# bun
+bun run dev
 ```
 
-## Composition
+## Production
 
-- [Nuxt3](https://nuxt.com/)
-- [Nuxt Day.js](https://github.com/fumeapp/dayjs)
-- [Nuxt Icons](https://github.com/gitFoxCode/nuxt-icons)
-- [GSAP](https://greensock.com/gsap/)
-- [Locomotive Scroll V5](https://scroll.locomotive.ca/docs/#/limitations)grid.md)
+Build the application for production:
 
-## License
-If you enjoy our boilerplate, we kindly ask you to keep the console.log reference to our GitHub source when using it. Currently, it is included in the init file.
-- [The MIT License.](https://opensource.org/license/mit/)
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

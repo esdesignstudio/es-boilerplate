@@ -1,65 +1,32 @@
-import { useLogs } from '~/composables/useLogs'
+/**
+ * 清除所有頁面快取（SWR / route cache）
+ *
+ * 用法：
+ *   POST /api/cache/clear-all
+ */
+export default defineEventHandler(async () => {
+  const { logInfo, logError } = useLogs()
 
-export default defineEventHandler(async (event) => {
-    const { logInfo, logError } = useLogs()
-    
-    try {
-        // 取得 Nitro 的 cache storage
-        const storage = useStorage('cache')
+  try {
+    const storage = useStorage('cache')
+    const keys = await storage.getKeys('nitro:routes')
 
-        // 收集所有要清除的快取類型
-        const cacheTypes = [
-            { name: 'Route Cache', prefix: 'nitro:routes' },
-            { name: 'API Cache', prefix: 'nitro:handlers:fetch-cache' }
-        ]
-
-        const results = {
-            success: true,
-            message: '',
-            details: [] as any[],
-            totalCount: 0,
-            deletedKeys: [] as string[]
-        }
-
-        // 清除每種類型的快取
-        for (const cacheType of cacheTypes) {
-            const keys = await storage.getKeys(cacheType.prefix)
-            
-            if (keys.length > 0) {
-                logInfo(`[Cache Clear All]`)
-                
-                for (const key of keys) {
-                    await storage.removeItem(key)
-                    results.deletedKeys.push(key)
-                }
-                
-                results.details.push({
-                    type: cacheType.name,
-                    count: keys.length
-                })
-                
-                results.totalCount += keys.length
-            }
-        }
-
-        if (results.totalCount === 0) {
-            return {
-                success: true,
-                message: '目前沒有任何快取',
-                totalCount: 0,
-            }
-        }
-
-        results.message = `成功清除所有快取 (共 ${results.totalCount} 筆)`
-
-        return results
-    } catch (error: any) {
-        logError('clear-all-cache', {}, 0, error.statusCode || 500, 'POST', error.message)
-        return {
-            success: false,
-            message: '清除所有快取時發生錯誤',
-            error: error.message,
-        }
+    for (const k of keys) {
+      await storage.removeItem(k)
     }
-})
 
+    logInfo(`[Cache Clear All] cleared ${keys.length} keys`)
+
+    return {
+      success: true,
+      cleared: keys.length,
+      keys,
+    }
+  } catch (error: any) {
+    logError('cache-clear-all', {}, 0, error.statusCode || 500, 'POST', error.message)
+    throw createError({
+      statusCode: error.statusCode || 500,
+      message: error.message || '清除全部快取時發生錯誤',
+    })
+  }
+})

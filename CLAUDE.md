@@ -17,7 +17,7 @@
 ## 目錄結構（Nuxt 4）
 
 ```
-nuxt4/
+.
 ├── app/                   ← 前端程式碼（Nuxt 4 新結構）
 │   ├── app.vue
 │   ├── error.vue
@@ -220,7 +220,7 @@ routeRules: {
 
 ## 環境變數
 
-`.env` 檔位於 nuxt4 根目錄，nuxt.config.ts 會額外讀取**上層 `../.env`**（多專案共用情境）。
+`.env` 檔位於專案根目錄，由 Nuxt 自動載入。
 
 常用變數：
 - `ENV` — `dev` / `uat` / `prod`
