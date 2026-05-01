@@ -18,7 +18,7 @@ export const esNotification = (
         const noti = document.querySelector('.esNotification') as HTMLElement
         noti.classList.add('out')
         setTimeout(() => {noti.remove()}, 200)
-    }, 2000)
+    }, 4000)
 }
 
 export const esShareTo = ( 
@@ -27,12 +27,15 @@ export const esShareTo = (
         socialMedia: string 
     }
 ) => {
-    if (navigator.share) {
-        navigator.share({
-            title: document.title,
-            text: document.title,
-            url: data.url
-        })
+    const viewport = useViewport()
+    if (viewport.value.isMobile) {
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                text: document.title,
+                url: data.url
+            })
+        }
     } else {
         let shareUrl
         switch (data.socialMedia) {
@@ -44,6 +47,11 @@ export const esShareTo = (
                 break
             case 'Twitter' :
                 shareUrl = 'https://twitter.com/intent/tweet?url=' + data.url + '&amp;via=esdesign'
+                break
+            case 'Instagram' :
+                // 只能分享到 IG Story，且僅限手機瀏覽器
+                shareUrl = 'https://www.instagram.com/stories/share/?url=' + data.url
+                break
         }
 
         window.open(
@@ -51,5 +59,16 @@ export const esShareTo = (
             'shareWindow',
             'menubar=0,location=0,toolbar=0,status=0,scrollbars=1,width=800,height=600'
         )
+    }
+}
+
+export const esCopyToClipboard = (url: string) => {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(url)
+    } else {
+        const textarea = document.createElement('textarea')
+        textarea.value = url
+        document.body.appendChild(textarea)
+        textarea.select()
     }
 }

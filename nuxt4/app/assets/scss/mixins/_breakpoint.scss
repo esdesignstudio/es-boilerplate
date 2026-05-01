@@ -1,0 +1,109 @@
+@use 'sass:map';
+@use 'sass:list';
+@use '../config' as *;
+
+@function breakpoint-next(
+    $name,
+    $breakpoints: $breakpoints,
+    $breakpoint-names: map.keys($breakpoints)
+) {
+    $n: list.index($breakpoint-names, $name);
+    @if not $n {
+        @error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
+    }
+    @if $n < list.length($breakpoint-names) {
+        @return list.nth($breakpoint-names, $n + 1);
+    }
+    @return null;
+}
+
+@function breakpoint-min($name, $breakpoints: $breakpoints) {
+    $min: map.get($breakpoints, $name);
+    @if $min != 0 {
+        @return $min;
+    }
+    @return null;
+}
+
+@function breakpoint-max($name, $breakpoints: $breakpoints) {
+    $max: map.get($breakpoints, $name);
+    @if $max and $max > 0 {
+        @return $max - 0.02px;
+    }
+    @return null;
+}
+
+@function breakpoint-infix($name, $breakpoints: $breakpoints) {
+    @if breakpoint-min($name, $breakpoints) == null {
+        @return '';
+    }
+    @return '-#{$name}';
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+    @else {
+        @content; // 最小斷點當基準，無條件輸出
+    }
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    }
+    // 傳入無效斷點時靜默不輸出
+}
+
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $breakpoints) {
+    $min: breakpoint-min($lower, $breakpoints);
+    $max: breakpoint-max($upper, $breakpoints);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+    @else if $max == null {
+        @include media-breakpoint-up($lower, $breakpoints) {
+            @content;
+        }
+    }
+    @else if $min == null {
+        @include media-breakpoint-down($upper, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+@mixin media-breakpoint-only($name, $breakpoints: $breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    $next: breakpoint-next($name, $breakpoints);
+    $max: null;
+    @if $next {
+        $max: breakpoint-max($next, $breakpoints);
+    }
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+    @else if $max == null {
+        @include media-breakpoint-up($name, $breakpoints) {
+            @content;
+        }
+    }
+    @else if $min == null {
+        @include media-breakpoint-down($next, $breakpoints) {
+            @content;
+        }
+    }
+}

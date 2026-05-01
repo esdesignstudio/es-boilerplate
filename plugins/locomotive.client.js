@@ -4,7 +4,7 @@ export default defineNuxtPlugin( nuxtApp => {
     const LCscroll = new LocomotiveScroll({
         lenisOptions: {
             lerp: 0.1,
-            duration: 0.5,
+            duration: 1.5,
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,

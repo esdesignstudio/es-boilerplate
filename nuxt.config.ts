@@ -1,113 +1,128 @@
-import { resolve, dirname } from 'node:path'
+// 讀取根目錄的環境變數
+import { readFileSync } from 'fs'
+import { resolve, join } from 'path'
+
+// 使用根目錄的 .env 檔案寫進去 process.env
+const rootEnvPath = resolve(process.cwd(), '../.env')
+try {
+  const envContent = readFileSync(rootEnvPath, 'utf8')
+  envContent.split('\n').forEach(line => {
+    const [key, value] = line.split('=')
+    if (key && value && !process.env[key]) {
+      process.env[key] = value.replace(/^["']|["']$/g, '')
+    }
+  })
+} catch (error) {
+  console.warn('無法讀取根目錄的 .env 檔案:', error instanceof Error ? error.message : String(error))
+}
 
 export default defineNuxtConfig({
-  app: {
-      rootId: 'es-app',
-      pageTransition: { name: 'page', mode: 'out-in' },
-      head: {
-          htmlAttrs: {
-              lang: 'zh-TW',
-          },
-          charset: 'utf-8',
-          titleTemplate: '%s ✷ ' + process.env.APP_NAME,
-          meta: [
-              { name: 'theme-color', content: '#000000' },
-              { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-              { name: 'copyright', content: '網站開發：ES Design' },
-              { property: 'og:type', content: 'website' },
-              { property: 'og:image:width', content: '1200' },
-              { property: 'og:image:height', content: '630' },
-              { property: 'og:image', content: '/socialshare.jpg' },
-              { property: 'twitter:image', content: '/socialshare.jpg' },
-              { property: 'twitter:card', content: 'summary_large_image' },
-          ],
-          link: [
-              { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-              {
-                  href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap',
-                  rel: 'stylesheet',
-              },
-          ],
-          noscript: [
-              { children: '<style>text{position:fixed;top:0;left:0;width:100vw;height:100vh;font-size:2rem;background-color:#000;color:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;text-align:center;padding:5rem}</style>' },
-              { children: '😓 ' + process.env.APP_NAME + '：Sorry your JavaScript is off or your browser does not support JavaScript 😓' }
-          ], 
-          script: [
-              // { src: 'https://static.line-scdn.net/liff/edge/2/sdk.js'}
-          ]
-      }
-  },
+    app: {
+        rootId: 'es-app',
+        pageTransition: { name: 'page', mode: 'out-in' },
+        head: {
+            charset: 'utf-8',
+            // titleTemplate: '%s ✷ ' + process.env.APP_NAME,
+            meta: [
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                { name: 'author', content: 'Web developer ES Design' },
+                { property: 'og:type', content: 'website' },
+                { property: 'og:image', content: '/socialshare.jpg' },
+                { name: 'theme-color', content: '#672146' },
+                { name: 'robots', content: process.env.ENV === 'prod' ? 'index, follow' : 'noindex, nofollow' }
+            ],
+            link: [
+                { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
+                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap' },
+                { rel: 'stylesheet', href: 'https://use.typekit.net/qpp0iio.css' }
+            ],
+            noscript: [
+                { innerHTML: '<style>text{position:fixed;top:0;left:0;width:100vw;height:100vh;font-size:2rem;background-color:#000;color:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;text-align:center;padding:5rem}</style>' },
+                { innerHTML: '😓：Sorry your JavaScript is off or your browser does not support JavaScript 😓' }
+            ], 
+            script: [
+                // { src: ''}
+            ]
+        }
+    },
 
-  css: [
-      '@/assets/styles/main.scss', // global css
-  ],
+    css: [  '~/assets/scss/main.scss' ],
 
-  vite: {
-      css: {
-          preprocessorOptions: {
-              scss: {
-                  additionalData: '@import "@/assets/styles/mixins/mixin.scss";',
-                  //! 關閉 CSS 警告使用
-                  api: 'modern-compiler',
-                  silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import']
-              },
-          },
-      },
-      resolve:{
-          alias: {
-              '~': resolve(__dirname, './assets/')
-          }
-      },
+    vite: {
+        css: {
+            preprocessorOptions: {
+            scss: {
+                additionalData: '@use "@/assets/scss/mixins/mixin.scss" as *;'
+            }
+            }
+        },
+    
+        server: { // 解決開發時 websocket 問題
+            // hmr: {
+            //     protocol: 'ws',
+            //     host: 'localhost'
+            // },
+            allowedHosts: [
+              'host.docker.internal'
+            ]
+        },
+        plugins: [
+            // 解決 nuxt-icons 圖示問題
+            {
+                name: 'vite-plugin-glob-transform',
+                transform(code: string, id: string) {
+                    if (id.includes('nuxt-icons')) {
+                    return code.replace(/as:\s*['"]raw['"]/g, 'query: "?raw", import: "default"');
+                    }
+                    return code;
+                }
+            }
+        ]
+    },
 
-      //! 關閉 Nuxt Icons 警告使用
-      plugins: [ 
-          {
-          name: 'vite-plugin-glob-transform',
-          transform(code: string, id: string) {
-              if (id.includes('nuxt-icons')) {
-              return code.replace(/as:\s*['"]raw['"]/g, 'query: "?raw", import: "default"');
-              }
-              return code;
-          }
-          }
-      ],
-      server: { // 解決開發時 websocket 問題
-          hmr: {
-              protocol: 'ws',
-              host: 'localhost'
-          }
-      }
-  },
+    nitro: {
+        storage : {
+            cache: {
+                driver: 'fs',
+                base: './.cache'
+            }
+        },
+        routeRules: {
+            '/': { swr: true },
+            // '/works': { swr: true },
+            // '/works/**': { swr: true },
+            // '/about': { swr: true },
+            // '/contact': { swr: true },
+        }
+    },
 
-  modules: [
-      '@nuxt/devtools',
-      'nuxt-icons',
-      'dayjs-nuxt',
-  ],
+    modules: [
+        '@nuxt/devtools',
+        '@nuxtjs/sitemap',
+        '@nuxt/image',
+        'nuxt-icons',
+        process.env.I18N_ENABLED === 'true' ? 'nuxt-i18n' : null
+    ],
 
-  runtimeConfig: {
-      public: {
-          env: process.env.ENV,
-          siteUrl: process.env.SITE_URL,
-          apiUrl: process.env.API_URL + '/wp-json/api',
-          siteName: process.env.APP_NAME
-      },
-  },
+    runtimeConfig: {
+        public: {
+            env: process.env.ENV,
+            siteUrl: process.env.NUXT_SITE_URL,
+            apiUrl: process.env.WP_URL + '/wp-json/api',
+            apiWpUrl: process.env.WP_URL + '/wp-json/wp/v2',
+            // 以環境變數控制是否啟用 i18n 功能（預設關閉）
+            i18nEnabled: process.env.I18N_ENABLED === 'true'
+        },
+    },
 
-  devtools: {
-      enabled: process.env.ENV === 'dev',
-  },
+    devtools: {
+        enabled: process.env.ENV === 'dev',
+    },
 
-  hooks: {
-      'nitro:build:public-assets' : (nitro) => {
-          console.log('ES BUILD SUCCESS')
-          console.log('                         .-.')
-          console.log('(_______________________()6 `--,')
-          console.log('(   __________________   /"""`')
-          console.log('//\\                  //\\')
-          console.log('"" ""                 "" ""')
-      }
-  },
-
-  compatibilityDate: '2024-11-28'
+    sitemap: {
+        sources: [ `${process.env.WP_URL}/wp-json/api/get_sitemap` ],
+        includeAppSources: true,
+    }
 })
